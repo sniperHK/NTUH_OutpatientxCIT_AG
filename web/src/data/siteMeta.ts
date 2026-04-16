@@ -118,6 +118,16 @@ export const scenarioMetas = [
   },
 ]
 
+export const slideOrder = ['S-M01', 'S-M03', 'S-M04', 'S-M05'] as const
+export type SlideId = (typeof slideOrder)[number]
+
+export const slideMeta: Record<SlideId, { title: string; desc: string; color: string; colorLight: string; instructor: string }> = {
+  'S-M01': { title: '暴力曲線與風險辨識', desc: 'M01 + M02 — STAMP, CABD, 暴力曲線五階段', color: '#2980B9', colorLight: '#D6EAF8', instructor: '林皓陽' },
+  'S-M03': { title: '環境察覺與自我調控', desc: 'M03 — 安全站位、環境掃描、Box Breathing', color: '#E67E22', colorLight: '#FDEBD0', instructor: '林皓陽' },
+  'S-M04': { title: '言語降階與 DEFUSE', desc: 'M04 — DEFUSE 六步驟、停聽同選、話術演練', color: '#C0392B', colorLight: '#FADBD8', instructor: '林皓陽' },
+  'S-M05': { title: '團隊合作與通報升級', desc: 'M05 + M06 — 三角色、通報決策樹、案例 Debrief', color: '#1E8449', colorLight: '#D5F5E3', instructor: '劉政亨' },
+}
+
 export const courseInfo = {
   title: 'CIT 門診暴力去激化工作坊',
   subtitle: '115 年臺大醫院護理部',

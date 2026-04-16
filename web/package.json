@@ -6,6 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:slides:m01": "slidev build slides/S-M01.md --base /slides/S-M01/ --out ../public/slides/S-M01",
+    "build:slides:m03": "slidev build slides/S-M03.md --base /slides/S-M03/ --out ../public/slides/S-M03",
+    "build:slides:m04": "slidev build slides/S-M04.md --base /slides/S-M04/ --out ../public/slides/S-M04",
+    "build:slides:m05": "slidev build slides/S-M05.md --base /slides/S-M05/ --out ../public/slides/S-M05",
+    "build:slides": "npm run build:slides:m01 && npm run build:slides:m03 && npm run build:slides:m04 && npm run build:slides:m05",
+    "build:all": "npm run build:slides && npm run build",
     "preview": "vite preview",
     "lint": "eslint ."
   },
@@ -24,6 +30,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@slidev/cli": "^52.14.2",
+    "@slidev/theme-default": "^0.25.0",
     "@tailwindcss/vite": "^4.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

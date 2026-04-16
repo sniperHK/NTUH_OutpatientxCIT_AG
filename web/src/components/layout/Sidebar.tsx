@@ -1,6 +1,6 @@
 import { X } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
-import { modules, tools, scenarioMetas } from '@/data/siteMeta'
+import { modules, tools, scenarioMetas, slideOrder, slideMeta } from '@/data/siteMeta'
 
 interface SidebarProps {
   isOpen: boolean
@@ -53,6 +53,26 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                   </NavLink>
                 </li>
               ))}
+            </ul>
+          </section>
+
+          {/* 課堂簡報 */}
+          <section>
+            <h3 className="font-semibold text-xs uppercase tracking-wider text-gray-400 mb-2">
+              課堂簡報
+            </h3>
+            <ul className="space-y-0.5">
+              {slideOrder.map((id) => {
+                const s = slideMeta[id]
+                return (
+                  <li key={id}>
+                    <NavLink to={`/slides/${id}`} className={navLinkClass} onClick={onClose}>
+                      <span className="inline-block w-2 h-2 rounded-full mr-2" style={{ backgroundColor: s.color }} />
+                      {id.replace('S-', '')} {s.title}
+                    </NavLink>
+                  </li>
+                )
+              })}
             </ul>
           </section>
 

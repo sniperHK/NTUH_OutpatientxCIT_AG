@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { courseInfo, modules, scenarioMetas, tools } from '@/data/siteMeta'
+import { courseInfo, modules, scenarioMetas, tools, slideOrder, slideMeta } from '@/data/siteMeta'
+import { Presentation } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -92,6 +93,37 @@ export default function HomePage() {
               <p className="text-xs text-gray-500">{t.subtitle}</p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* 課堂簡報 */}
+      <section>
+        <h2 className="text-xl font-bold text-[#1B2A4A] mb-4 flex items-center gap-2">
+          <Presentation size={22} />
+          課堂簡報
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {slideOrder.map((id) => {
+            const s = slideMeta[id]
+            return (
+              <Link
+                key={id}
+                to={`/slides/${id}`}
+                className="block bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span
+                    className="inline-block w-3 h-3 rounded-full shrink-0"
+                    style={{ backgroundColor: s.color }}
+                  />
+                  <span className="text-xs font-mono text-gray-400">{id.replace('S-', '')}</span>
+                </div>
+                <h3 className="font-semibold text-[#1B2A4A] mb-1">{s.title}</h3>
+                <p className="text-xs text-gray-500 mb-2">{s.desc}</p>
+                <span className="text-xs text-gray-400">{s.instructor}醫師</span>
+              </Link>
+            )
+          })}
         </div>
       </section>
 

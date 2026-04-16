@@ -7,6 +7,7 @@ import ScenarioPage from '@/pages/ScenarioPage'
 import ToolPage from '@/pages/ToolPage'
 import QuizPage from '@/pages/QuizPage'
 import HandoutPage from '@/pages/HandoutPage'
+import SlidesPage from '@/pages/SlidesPage'
 
 export default function App() {
   return (
@@ -18,6 +19,8 @@ export default function App() {
         <Route path="/tools/:toolId" element={<ToolPage />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/quiz/:type" element={<QuizPage />} />
+        <Route path="/slides" element={<SlidesPage />} />
+        <Route path="/slides/:slideId" element={<SlidesPage />} />
         <Route path="/handout" element={<HandoutPage />} />
         <Route path="/roadmap" element={<RoadmapPage />} />
       </Routes>

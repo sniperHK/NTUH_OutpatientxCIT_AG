@@ -13,7 +13,13 @@ COPY docs/ ./docs/
 # Sync markdown modules to public directory for runtime fetch
 RUN cp -r docs/modules web/public/modules
 
-# Build
+# Build Slidev slides first (output to public/slides/)
+RUN cd web && npx slidev build slides/S-M01.md --base /slides/S-M01/ --out ../public/slides/S-M01 \
+ && npx slidev build slides/S-M03.md --base /slides/S-M03/ --out ../public/slides/S-M03 \
+ && npx slidev build slides/S-M04.md --base /slides/S-M04/ --out ../public/slides/S-M04 \
+ && npx slidev build slides/S-M05.md --base /slides/S-M05/ --out ../public/slides/S-M05
+
+# Build React app (includes slides in dist/)
 RUN cd web && npx vite build
 
 # Stage 2: Serve
