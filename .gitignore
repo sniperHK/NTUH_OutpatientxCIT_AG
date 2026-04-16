@@ -13,3 +13,10 @@ age-key.txt
 # Encrypted env files are safe to commit
 !.env.age
 !.env.*.age
+
+# Node
+web/node_modules/
+web/dist/
+
+# Superpowers brainstorming
+.superpowers/

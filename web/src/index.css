@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  /* CIT Medical Colors — light palette */
+  --color-cit-blue: #2980B9;
+  --color-cit-blue-light: #D6EAF8;
+  --color-cit-purple: #8E44AD;
+  --color-cit-purple-light: #E8DAEF;
+  --color-cit-orange: #E67E22;
+  --color-cit-orange-light: #FDEBD0;
+  --color-cit-red: #C0392B;
+  --color-cit-red-light: #FADBD8;
+  --color-cit-green: #1E8449;
+  --color-cit-green-light: #D5F5E3;
+  --color-cit-teal: #16A085;
+  --color-cit-teal-light: #D1F2EB;
+  --color-cit-navy: #1B2A4A;
+  --color-cit-navy-light: #D6DBDF;
+  --color-cit-dark: #2C3E50;
+
+  --font-sans: "Inter", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+}
+
+/* Base typography */
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Markdown content styling */
+.prose h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-cit-navy); }
+.prose h2 { font-size: 1.375rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; padding-bottom: 0.375rem; border-bottom: 2px solid var(--color-cit-blue-light); }
+.prose h3 { font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.prose p { margin-bottom: 0.75rem; line-height: 1.7; }
+.prose ul, .prose ol { margin-bottom: 0.75rem; padding-left: 1.5rem; }
+.prose li { margin-bottom: 0.25rem; line-height: 1.6; }
+.prose strong { font-weight: 600; }
+.prose blockquote {
+  border-left: 3px solid var(--color-cit-blue);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background: var(--color-cit-blue-light);
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
+/* Markdown tables */
+.prose table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+.prose thead tr { background: #F0F4F8; }
+.prose th { padding: 0.625rem 0.75rem; text-align: left; font-weight: 600; border-bottom: 2px solid #D5DBDB; color: var(--color-cit-dark); }
+.prose td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #EAECEE; }
+.prose tbody tr:hover { background: #F8F9FA; }
+
+/* Alert boxes */
+.alert { padding: 0.75rem 1rem; border-radius: 0.5rem; margin: 1rem 0; border-left: 4px solid; }
+.alert-info { background: var(--color-cit-blue-light); border-color: var(--color-cit-blue); }
+.alert-warning { background: var(--color-cit-orange-light); border-color: var(--color-cit-orange); }
+.alert-danger { background: var(--color-cit-red-light); border-color: var(--color-cit-red); }
+.alert-success { background: var(--color-cit-green-light); border-color: var(--color-cit-green); }
