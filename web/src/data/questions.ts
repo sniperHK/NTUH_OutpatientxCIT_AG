@@ -390,4 +390,196 @@ export const questions: Question[] = [
     explanation:
       'Box Breathing（方盒呼吸法）是可在高壓情境現場使用的即時技巧：吸氣 4 秒、屏住 4 秒、吐氣 4 秒、屏住 4 秒，重複 2-3 次。其他選項（離開、長時間數數、閉眼冥想）不適合在面對病人的當下使用。',
   },
+
+  // === M02 CABD 進階題 ===
+  {
+    id: 'Q26',
+    type: 'single-choice',
+    category: 'pre',
+    module: 'M02',
+    stem: 'STAMP 評估中，以下哪個指標組合代表最高風險？',
+    options: [
+      { id: 'A', text: 'Staring + Tone 異常', isCorrect: false },
+      { id: 'B', text: 'Anxiety + Pacing 異常', isCorrect: false },
+      { id: 'C', text: '五項指標（S、T、A、M、P）全部異常', isCorrect: true },
+      { id: 'D', text: 'Mumbling + Staring 異常', isCorrect: false },
+    ],
+    explanation:
+      'STAMP 五項指標全部異常（5/5）代表最高風險等級，應立即啟動完整「叫叫 CABD」流程並聯繫駐警隊待命。2 項異常即需啟動 CABD 初評，4-5 項異常為高風險。',
+  },
+  {
+    id: 'Q27',
+    type: 'single-choice',
+    category: 'pre',
+    module: 'M02',
+    stem: '精神危機版「叫叫 CABD」中的 C 代表什麼？',
+    options: [
+      { id: 'A', text: 'Communication（溝通）', isCorrect: false },
+      { id: 'B', text: 'Cognition（認知）', isCorrect: true },
+      { id: 'C', text: 'Circulation（循環）', isCorrect: false },
+      { id: 'D', text: 'Control（控制）', isCorrect: false },
+    ],
+    explanation:
+      '精神危機版 CABD：C(Cognition 認知) 評估思考與意識狀態、A(Affection 情緒) 觀察情緒與肢體語言、B(Behavior 行為) 辨識怪異與危險行為、D(Decide and Defuse 決定與降階)。與急救版 CABD 的字母意涵不同。',
+  },
+  {
+    id: 'Q28',
+    type: 'single-choice',
+    category: 'post',
+    module: 'M02',
+    stem: '「居安思危」口訣中，「居安」指的是什麼？',
+    options: [
+      { id: 'A', text: '讓病人待在安全的地方', isCorrect: false },
+      { id: 'B', text: '確保自身處於安全位置與狀態', isCorrect: true },
+      { id: 'C', text: '維持候診區的安寧', isCorrect: false },
+      { id: 'D', text: '讓所有人回到座位上', isCorrect: false },
+    ],
+    explanation:
+      '「居安」指的是先確保自身安全——包含安全站位、確認退路、維持安全距離、不單獨行動。只有在自己安全的前提下，才能有效評估與處置危機情境。自身安全永遠是最高優先。',
+  },
+  {
+    id: 'Q29',
+    type: 'scenario',
+    category: 'post',
+    module: 'M02',
+    stem: '候診區一位病人不斷喃喃自語、在座位旁來回踱步、表情焦躁，你觀察到 STAMP 有 3 項異常。此時你的第一步行動應該是？',
+    scenarioContext: '上午門診候診區，約 20 名病人候診中',
+    options: [
+      { id: 'A', text: '直接走過去安撫病人', isCorrect: false },
+      { id: 'B', text: '通知同仁並啟動 CABD 初評', isCorrect: true },
+      { id: 'C', text: '繼續觀察，等到 5 項全部異常再處理', isCorrect: false },
+      { id: 'D', text: '立即撥打 110 報警', isCorrect: false },
+    ],
+    explanation:
+      'STAMP 3 項異常屬中-高風險，應啟動 CABD 初評並同步通知當班 leader。不需等到全部異常才行動（2 項即需啟動），也不應在未通知團隊的情況下單獨接近。110 保留給立即危險情境。',
+  },
+  {
+    id: 'Q30',
+    type: 'single-choice',
+    category: 'post',
+    module: 'M02',
+    stem: '進行 CAB 初評後，以下哪種情境最需要聯繫精神科會診？',
+    options: [
+      { id: 'A', text: '病人因等候過久而情緒激動，但溝通仍有效', isCorrect: false },
+      { id: 'B', text: '病人出現妄想內容、認知脫離現實，但無攻擊行為', isCorrect: true },
+      { id: 'C', text: '家屬大聲抱怨收費問題', isCorrect: false },
+      { id: 'D', text: '病人因疼痛而煩躁不安', isCorrect: false },
+    ],
+    explanation:
+      '當 CAB 評估發現認知面有妄想、思考脫離現實（C 異常），即使行為面暫無攻擊性，仍需精神科專業評估與介入。其他選項屬於情境性激躁，通常可透過降階溝通處理。',
+  },
+
+  // === 決策樹與暴力曲線 ===
+  {
+    id: 'Q31',
+    type: 'scenario',
+    category: 'post',
+    module: 'M06',
+    stem: '候診病人突然抓起椅子高舉過頭，大喊「再不叫我看診就砸了！」此時正確的通報路徑是？',
+    scenarioContext: '下午門診候診區，病人已等候 2 小時',
+    options: [
+      { id: 'A', text: '路徑 A：先以停聽同選嘗試規勸', isCorrect: false },
+      { id: 'B', text: '路徑 B：立即聯繫駐警隊，駐警聯絡管區派出所', isCorrect: true },
+      { id: 'C', text: '先通知護理長到場評估', isCorrect: false },
+      { id: 'D', text: '自行上前奪取椅子', isCorrect: false },
+    ],
+    explanation:
+      '持物品揮舞（抓椅子高舉）屬於肢體暴力行為，應走路徑 B：立即聯繫駐警隊，駐警到場後主動聯絡管區派出所。此時言語降階的風險過高，絕對不要嘗試自行奪取物品。',
+  },
+  {
+    id: 'Q32',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M01',
+    stem: '在暴力曲線中，哪個階段是言語降階介入的「黃金窗口」？',
+    options: [
+      { id: 'A', text: '階段一：誘發事件', isCorrect: false },
+      { id: 'B', text: '階段二：升溫期', isCorrect: true },
+      { id: 'C', text: '階段三：危機期', isCorrect: false },
+      { id: 'D', text: '階段四：高原期', isCorrect: false },
+    ],
+    explanation:
+      '升溫期（階段二）是黃金介入窗口。此階段病人情緒開始升高但尚未失控，認知功能仍存在，言語溝通仍然有效。一旦進入危機期，病人理性思考能力大幅下降，降階難度與風險都顯著提升。',
+  },
+  {
+    id: 'Q33',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M04',
+    stem: '「停聽同選」中的「選」對應 DEFUSE 框架的哪個步驟？',
+    options: [
+      { id: 'A', text: 'D — Determine（判斷）', isCorrect: false },
+      { id: 'B', text: 'F — Facilitate Choices（促進選擇）', isCorrect: true },
+      { id: 'C', text: 'U — Utilize Interests（善用需求）', isCorrect: false },
+      { id: 'D', text: 'E — Evaluate（評估）', isCorrect: false },
+    ],
+    explanation:
+      '「選」= 提供選項，讓對方重獲掌控感，對應 DEFUSE 中的 F（Facilitate Choices 促進選擇）。兩套框架的核心理念一致：透過給予合理選項，降低對方的無助感與對抗性。',
+  },
+
+  // === M05 團隊合作進階 ===
+  {
+    id: 'Q34',
+    type: 'scenario',
+    category: 'post',
+    module: 'M05',
+    stem: '你已嘗試言語降階超過 5 分鐘，但病人情緒持續升高，開始出現拍桌行為。此時你應該？',
+    scenarioContext: '門診護理站，病人因報告遺失問題持續激動',
+    options: [
+      { id: 'A', text: '繼續嘗試降階，再給 5 分鐘', isCorrect: false },
+      { id: 'B', text: '提高音量壓制對方', isCorrect: false },
+      { id: 'C', text: '啟動團隊支援，由其他同仁接手溝通，並通知 leader', isCorrect: true },
+      { id: 'D', text: '轉身離開不再處理', isCorrect: false },
+    ],
+    explanation:
+      '降階溝通超過 5 分鐘無效且情緒持續升級時，應判斷為降階失敗，啟動團隊支援：換人接手溝通（換人可降溫）、通知 leader 到場、必要時聯繫駐警。繼續堅持反而可能因疲勞而犯錯。',
+  },
+  {
+    id: 'Q35',
+    type: 'single-choice',
+    category: 'post',
+    module: 'M05',
+    stem: '駐警到場後，你應優先向駐警交代哪些資訊？',
+    options: [
+      { id: 'A', text: '病人的完整病史與用藥紀錄', isCorrect: false },
+      { id: 'B', text: '事件經過、病人目前行為狀態、已嘗試的處置、現場有無武器', isCorrect: true },
+      { id: 'C', text: '只需告訴駐警「有人在鬧事」即可', isCorrect: false },
+      { id: 'D', text: '請駐警自行評估，不需提供資訊', isCorrect: false },
+    ],
+    explanation:
+      '駐警到場時的簡報應包含：(1) 事件經過摘要 (2) 病人目前的行為狀態與情緒 (3) 已嘗試的處置方式 (4) 現場是否有武器或危險物品。這些資訊能幫助駐警快速掌握狀況並做出適當判斷。',
+  },
+
+  // === M03 環境察覺進階 ===
+  {
+    id: 'Q36',
+    type: 'scenario',
+    category: 'post',
+    module: 'M03',
+    stem: '你在只有一個出入口的診間內，病人突然站起來擋住門口，情緒激動。你的第一步行動應該是？',
+    scenarioContext: '單門診間，僅有一扇門，病人站在門口位置',
+    options: [
+      { id: 'A', text: '試著推開病人衝出門口', isCorrect: false },
+      { id: 'B', text: '保持冷靜，用緩和語氣溝通，同時觀察是否有其他脫離路線或可用的求救方式', isCorrect: true },
+      { id: 'C', text: '大聲尖叫求救', isCorrect: false },
+      { id: 'D', text: '拿起桌上物品防身', isCorrect: false },
+    ],
+    explanation:
+      '被困在單門房間時，首要是保持冷靜、不激化對方。用緩和語氣維持溝通的同時，觀察環境：是否有窗戶、緊急求救鈴、電話等求救管道。肢體對抗（推開、拿物品）可能激發更嚴重的攻擊。',
+  },
+  {
+    id: 'Q37',
+    type: 'single-choice',
+    category: 'pre',
+    module: 'M03',
+    stem: '門診設置的緊急求救鈴應在何時按下？',
+    options: [
+      { id: 'A', text: '只要病人提高音量就應該按', isCorrect: false },
+      { id: 'B', text: '當感受到人身安全受到威脅，需要立即支援時', isCorrect: true },
+      { id: 'C', text: '只有在被攻擊後才能按', isCorrect: false },
+      { id: 'D', text: '必須經過護理長同意才能按', isCorrect: false },
+    ],
+    explanation:
+      '緊急求救鈴的使用時機是「當你感受到人身安全受到威脅、需要立即支援時」。不需要等到被攻擊才按，也不需要主管同意。這是保護醫護人員安全的預防性措施，寧可多按一次也不要錯過求救時機。',
+  },
 ]

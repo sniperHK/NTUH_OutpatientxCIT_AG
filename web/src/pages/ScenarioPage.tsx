@@ -3,12 +3,14 @@ import ScenarioPlayer from '@/components/scenario/ScenarioPlayer'
 import S01 from '@/data/scenarios/S01'
 import S02 from '@/data/scenarios/S02'
 import S03 from '@/data/scenarios/S03'
+import S04 from '@/data/scenarios/S04'
 import type { Scenario } from '@/data/types'
 
 const scenarioMap: Record<string, Scenario> = {
   S01,
   S02,
   S03,
+  S04,
 }
 
 export default function ScenarioPage() {

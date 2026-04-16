@@ -109,6 +109,13 @@ export const scenarioMetas = [
     color: '#8E44AD',
     colorLight: '#E8DAEF',
   },
+  {
+    id: 'S04',
+    title: '精神狀態異常',
+    subtitle: '候診區病人行為異常，疑似精神危機',
+    color: '#8E44AD',
+    colorLight: '#E8DAEF',
+  },
 ]
 
 export const courseInfo = {
