@@ -18,24 +18,8 @@ const moduleFileMap: Record<string, string> = {
   M06: 'M06_reporting-regulations.md',
 }
 
-// Use Vite's import.meta.glob to load markdown files as raw strings
-const moduleFiles = import.meta.glob('/../../docs/modules/*.md', {
-  query: '?raw',
-  import: 'default',
-})
-
-function findModuleLoader(moduleId: string): (() => Promise<unknown>) | null {
-  const filename = moduleFileMap[moduleId]
-  if (!filename) return null
-
-  // Match against the glob keys
-  for (const [path, loader] of Object.entries(moduleFiles)) {
-    if (path.endsWith(filename)) {
-      return loader as () => Promise<unknown>
-    }
-  }
-  return null
-}
+// Resolve base path for fetching public assets
+const BASE = import.meta.env.BASE_URL
 
 export default function ContentPage() {
   const { moduleId } = useParams<{ moduleId: string }>()
@@ -58,15 +42,17 @@ export default function ContentPage() {
       setLoading(true)
       setError('')
 
-      const loader = findModuleLoader(moduleId)
-      if (!loader) {
+      const filename = moduleFileMap[moduleId]
+      if (!filename) {
         setError(`找不到模組 ${moduleId} 的教材內容`)
         setLoading(false)
         return
       }
 
       try {
-        const raw = (await loader()) as string
+        const res = await fetch(`${BASE}modules/${filename}`)
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        const raw = await res.text()
         if (!cancelled) {
           setContent(raw)
         }

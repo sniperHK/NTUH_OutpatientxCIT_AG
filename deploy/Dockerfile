@@ -10,6 +10,9 @@ RUN cd web && npm ci
 COPY web/ ./web/
 COPY docs/ ./docs/
 
+# Sync markdown modules to public directory for runtime fetch
+RUN cp -r docs/modules web/public/modules
+
 # Build
 RUN cd web && npx vite build
 
