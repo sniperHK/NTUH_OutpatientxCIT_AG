@@ -10,7 +10,7 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
-  base: '/NTUH_OutpatientxCIT_AG/',
+  base: '/',
   build: {
     rollupOptions: {
       output: {

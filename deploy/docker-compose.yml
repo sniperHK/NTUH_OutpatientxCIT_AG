@@ -1,0 +1,10 @@
+services:
+  cit-workshop:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      - "8904:80"
+    restart: unless-stopped
+    mem_limit: 64m
+    container_name: cit-workshop
