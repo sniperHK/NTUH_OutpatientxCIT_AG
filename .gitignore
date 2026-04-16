@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Plaintext env files should never be committed
+.env
+.env.missing
+.env.local
+.env.*.local
+
+# age private key should never be committed
+age-key.txt
+
+# Encrypted env files are safe to commit
+!.env.age
+!.env.*.age
