@@ -56,6 +56,7 @@ export interface TreeNode {
   label: string
   description?: string
   action?: string
+  question?: string
   children?: TreeNode[]
 }
 

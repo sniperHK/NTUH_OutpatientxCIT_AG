@@ -9,6 +9,7 @@ export const violenceCurveTree: DecisionTree = {
   rootNode: {
     id: 'root',
     label: '暴力曲線五階段',
+    question: '你觀察到病人處於暴力曲線的哪個階段？',
     children: [
       {
         id: 'stage1',

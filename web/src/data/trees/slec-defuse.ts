@@ -9,11 +9,13 @@ export const slecDefuseTree: DecisionTree = {
   rootNode: {
     id: 'root',
     label: '病人/家屬情緒激動',
+    question: '你決定開始降階溝通。第一步是什麼？',
     children: [
       {
         id: 'stop',
         label: '停',
         description: '停下手邊工作、面對對方、確認環境安全與出口位置',
+        question: '停下手邊工作後，接下來？',
         children: [
           {
             id: 'decide',
@@ -31,6 +33,7 @@ export const slecDefuseTree: DecisionTree = {
         id: 'listen',
         label: '聽',
         description: '讓對方說完、點頭示意、稱呼姓名、自我介紹',
+        question: '傾聽之後，你要怎麼回應？',
         children: [
           {
             id: 'form',
@@ -43,6 +46,7 @@ export const slecDefuseTree: DecisionTree = {
         id: 'empathize',
         label: '同',
         description: '同理回應、承認感受、找出對方真正需求',
+        question: '同理回應後，下一步？',
         children: [
           {
             id: 'utilize',
@@ -55,6 +59,7 @@ export const slecDefuseTree: DecisionTree = {
         id: 'choose',
         label: '選',
         description: '提供 2 個選項、說明可行方案、必要時升級處理',
+        question: '提供選項後，接下來的評估？',
         children: [
           {
             id: 'set',

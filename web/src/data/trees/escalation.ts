@@ -10,12 +10,14 @@ export const escalationTree: DecisionTree = {
     id: 'root',
     label: '觀察到異常行為',
     description: '透過 STAMP 評估發現病人/家屬出現異常行為徵兆',
+    question: '你觀察到什麼異常行為？',
     children: [
       {
         id: 'verbal-dissatisfaction',
         label: '言語不滿',
         description: '音量提高、反覆抱怨、語氣急躁但尚未威脅',
         action: '同理溝通：運用「停聽同選」技巧進行去激化',
+        question: '對方的反應如何？',
         children: [
           {
             id: 'verbal-resolved',
@@ -34,6 +36,7 @@ export const escalationTree: DecisionTree = {
         label: '言語威脅',
         description: '「我要打你」「信不信我砸了這裡」等威脅性言語',
         action: '通知當班 Leader + 聯繫駐警隊',
+        question: '駐警到場後的狀況？',
         children: [
           {
             id: 'threat-guard',
@@ -47,6 +50,7 @@ export const escalationTree: DecisionTree = {
         label: '持物揮舞',
         description: '拿起椅子、點滴架、水壺、雨傘等物品',
         action: '立即聯繫駐警隊 + 通知管區派出所',
+        question: '駐警與管區到場後的處置？',
         children: [
           {
             id: 'object-police',
@@ -60,6 +64,7 @@ export const escalationTree: DecisionTree = {
         label: '肢體攻擊',
         description: '推擠、拍打、丟擲物品、嚴重肢體攻擊、持凶器',
         action: '直接撥打 110 + 撤離現場人員',
+        question: '撤離後的後續處置？',
         children: [
           {
             id: 'attack-evacuate',
