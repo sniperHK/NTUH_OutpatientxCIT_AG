@@ -10,7 +10,7 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
-  base: '/CIT-clinic-violence-workshop/',
+  base: '/NTUH_OutpatientxCIT_AG/',
   build: {
     rollupOptions: {
       output: {

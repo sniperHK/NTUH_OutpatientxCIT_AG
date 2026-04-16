@@ -6,7 +6,7 @@ import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/CIT-clinic-violence-workshop">
+    <BrowserRouter basename="/NTUH_OutpatientxCIT_AG">
       <App />
     </BrowserRouter>
   </StrictMode>,
