@@ -199,13 +199,42 @@ export default function RoadmapPage() {
               <p className="text-sm text-gray-600 mb-3">
                 完成課前知識評量，讓講師掌握學員起始能力。
               </p>
-              <Link
-                to="/quiz/pre"
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-sm font-medium text-white hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: stepColors[2] }}
-              >
-                前往前測
-              </Link>
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <Link
+                  to="/quiz/pre"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-sm font-medium text-white hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: stepColors[2] }}
+                >
+                  前往前測
+                </Link>
+              </div>
+              <div className="mt-3 pt-3 border-t border-gray-200/50">
+                <p className="text-xs font-medium text-gray-500 mb-2">前測演練會議記錄</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <a
+                    href="https://github.com/sniperHK/NTUH_OutpatientxCIT_AG/blob/master/docs/meetings/20260407_pretest1_%E5%85%A7%E7%A7%91.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
+                  >
+                    📝 4/7 內科 13 診
+                  </a>
+                  <a
+                    href="https://github.com/sniperHK/NTUH_OutpatientxCIT_AG/blob/master/docs/meetings/20260409_pretest2_%E7%B2%BE%E7%A5%9E%E9%83%A8.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
+                  >
+                    📝 4/9 精神部
+                  </a>
+                  <Link
+                    to="/content/M07"
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded bg-[#34495E] text-white hover:opacity-90"
+                  >
+                    → M07 現場應變
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
 

@@ -16,6 +16,7 @@ const moduleFileMap: Record<string, string> = {
   M04: 'M04_verbal-deescalation.md',
   M05: 'M05_team-collaboration.md',
   M06: 'M06_reporting-regulations.md',
+  M07: 'M07_field-response.md',
 }
 
 // Resolve base path for fetching public assets

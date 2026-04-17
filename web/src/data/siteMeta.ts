@@ -61,6 +61,16 @@ export const modules: ModuleMeta[] = [
     timeSlot: '10:20–11:20',
     sourceFiles: ['CIT相關法規', '門診滋擾流程'],
   },
+  {
+    id: 'M07',
+    title: '門診現場應變實務',
+    subtitle: 'Field Response — 整合前測演練發現',
+    color: '#34495E',
+    colorLight: '#D5D8DC',
+    instructor: '劉政亨 + 林皓陽',
+    timeSlot: '綜合補充',
+    sourceFiles: ['20260407 前測會議記錄', '20260409 前測會議記錄'],
+  },
 ]
 
 export const tools: ToolMeta[] = [
