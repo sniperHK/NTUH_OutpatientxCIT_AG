@@ -139,7 +139,7 @@ export const slideMeta: Record<SlideId, { title: string; desc: string; color: st
 }
 
 export const courseInfo = {
-  title: 'CIT 門診暴力去激化工作坊',
+  title: 'CIT 危機處理介入訓練工作坊',
   subtitle: '115 年臺大醫院護理部',
   courseCode: '202157',
   date: '115 年 4 月 20 日（一）08:00–12:00',

@@ -11,7 +11,7 @@ export default function HandoutPage() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-[#1B2A4A]">學員手冊</h1>
-            <p className="text-sm text-gray-500">CIT 門診暴力去激化工作坊 — 隨身速查卡</p>
+            <p className="text-sm text-gray-500">CIT 危機處理介入訓練工作坊 — 隨身速查卡</p>
           </div>
         </div>
         <button
