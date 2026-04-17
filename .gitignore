@@ -20,3 +20,9 @@ web/dist/
 
 # Superpowers brainstorming
 .superpowers/
+
+# Slidev build output (generated, not tracked)
+web/public/slides/
+
+# TypeScript build info
+web/tsconfig.tsbuildinfo
