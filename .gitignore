@@ -26,3 +26,4 @@ web/public/slides/
 
 # TypeScript build info
 web/tsconfig.tsbuildinfo
+server/node_modules/
