@@ -9,7 +9,7 @@ export const escalationTree: DecisionTree = {
   rootNode: {
     id: 'root',
     label: '觀察到異常行為',
-    description: '透過 STAMP 評估發現病人/家屬出現異常行為徵兆',
+    description: '透過「眼耳鼻舌身意」六感評估發現病人/家屬出現異常行為徵兆',
     question: '你觀察到什麼異常行為？',
     children: [
       {
@@ -76,7 +76,7 @@ export const escalationTree: DecisionTree = {
     ],
   },
   mermaidDiagram: `graph TD
-    ROOT["🔍 觀察到異常行為<br/><small>STAMP 評估</small>"]
+    ROOT["🔍 觀察到異常行為<br/><small>眼耳鼻舌身意 六感評估</small>"]
     ROOT --> A["😤 言語不滿<br/><small>音量提高、抱怨、急躁</small>"]
     ROOT --> B["⚠️ 言語威脅<br/><small>「我要打你」「信不信我砸了」</small>"]
     ROOT --> C["🔴 持物揮舞<br/><small>椅子、點滴架、水壺</small>"]

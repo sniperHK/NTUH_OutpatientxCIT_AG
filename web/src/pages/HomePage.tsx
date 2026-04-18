@@ -6,7 +6,18 @@ export default function HomePage() {
   return (
     <div className="space-y-12">
       {/* Hero */}
-      <section className="text-center py-10 px-4 rounded-2xl bg-gradient-to-br from-[#D6EAF8] to-[#E8DAEF]">
+      <section className="relative text-center py-10 px-4 rounded-2xl bg-gradient-to-br from-[#D6EAF8] to-[#E8DAEF]">
+        {/* QR Code 右上角 */}
+        <div className="absolute top-4 right-4 bg-white rounded-lg p-2 shadow-sm hidden sm:block">
+          <img
+            src={`${import.meta.env.BASE_URL}cit-qr.svg`}
+            alt="QR Code: cit.henry780930.com"
+            className="w-20 h-20"
+          />
+          <p className="text-[10px] text-gray-500 text-center mt-1 leading-tight">
+            掃我<br/>分享給同仁
+          </p>
+        </div>
         <h1 className="text-3xl md:text-4xl font-bold text-[#1B2A4A] mb-2">
           {courseInfo.title}
         </h1>
