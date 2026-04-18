@@ -8,6 +8,7 @@ import ToolPage from '@/pages/ToolPage'
 import QuizPage from '@/pages/QuizPage'
 import HandoutPage from '@/pages/HandoutPage'
 import SlidesPage from '@/pages/SlidesPage'
+import MessageBoardPage from '@/pages/MessageBoardPage'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/slides" element={<SlidesPage />} />
         <Route path="/slides/:slideId" element={<SlidesPage />} />
         <Route path="/handout" element={<HandoutPage />} />
+        <Route path="/messages" element={<MessageBoardPage />} />
         <Route path="/roadmap" element={<RoadmapPage />} />
       </Routes>
     </Layout>

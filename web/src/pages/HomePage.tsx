@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { courseInfo, modules, scenarioMetas, tools, slideOrder, slideMeta } from '@/data/siteMeta'
-import { Presentation } from 'lucide-react'
+import { Presentation, MessageSquare } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -157,6 +157,31 @@ export default function HomePage() {
             <p className="text-sm text-gray-500">課後學習成效評估</p>
           </Link>
         </div>
+      </section>
+
+      {/* 留言板 */}
+      <section>
+        <h2 className="text-xl font-bold text-[#1B2A4A] mb-4 flex items-center gap-2">
+          <MessageSquare size={22} />
+          留言板
+        </h2>
+        <Link
+          to="/messages"
+          className="block bg-gradient-to-br from-[#D5F5E3] to-[#E8F8F5] rounded-xl p-5 border border-[#1E8449]/20 hover:shadow-md transition-shadow"
+        >
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
+              <MessageSquare className="w-5 h-5 text-[#1E8449]" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-[#1B2A4A]">課前課後討論區</h3>
+              <p className="text-xs text-gray-600">提問 · 經驗分享 · 現場互動</p>
+            </div>
+          </div>
+          <p className="text-sm text-gray-600 ml-[3.25rem]">
+            匿名或暱稱皆可，歡迎分享您在門診遇到的案例與疑問。
+          </p>
+        </Link>
       </section>
 
       {/* 學習路線 */}

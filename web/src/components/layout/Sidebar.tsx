@@ -136,6 +136,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/messages" className={navLinkClass} onClick={onClose}>
+                  留言板
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/roadmap" className={navLinkClass} onClick={onClose}>
                   學習路線
                 </NavLink>

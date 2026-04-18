@@ -4,7 +4,13 @@ services:
       context: ..
       dockerfile: deploy/Dockerfile
     ports:
-      - "8904:80"
+      - "8904:3000"
+    volumes:
+      - /volume1/docker/cit-workshop/data:/data
     restart: unless-stopped
-    mem_limit: 64m
+    mem_limit: 128m
     container_name: cit-workshop
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DB_PATH=/data/cit.db

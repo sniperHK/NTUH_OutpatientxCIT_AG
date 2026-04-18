@@ -19,13 +19,14 @@ echo "Syncing files..."
 tar czf - \
   --exclude='web/node_modules' \
   --exclude='web/dist' \
+  --exclude='server/node_modules' \
   --exclude='.git' \
   --exclude='.superpowers' \
   --exclude='age-key.txt' \
   --exclude='.env' \
   --exclude='.DS_Store' \
   --exclude='web/public/slides' \
-  web/ docs/modules/ deploy/ \
+  web/ docs/modules/ deploy/ server/ \
   | ssh "$NAS_HOST" "cd $REMOTE_DIR && tar xzf -"
 echo "Sync done"
 
