@@ -25,6 +25,10 @@ export interface Decision {
   feedback: string
   isCorrect: boolean
   teachingPoint?: string
+  nextStageId?: string
+  outcomeId?: string
+  impact?: 'de-escalate' | 'stabilize' | 'support' | 'escalate' | 'danger'
+  consequence?: string
 }
 
 export interface Stage {
@@ -33,6 +37,19 @@ export interface Stage {
   narrative: string
   behavioralIndicators: string[]
   decisions: Decision[]
+  criticalActions?: string[]
+  teachingPoints?: string[]
+  tensionLevel?: 1 | 2 | 3 | 4 | 5
+  statusLabel?: string
+}
+
+export interface ScenarioOutcome {
+  id: string
+  title: string
+  severity: 'safe' | 'support' | 'incident' | 'adverse'
+  label: string
+  narrative: string
+  consequences: string[]
   criticalActions?: string[]
   teachingPoints?: string[]
 }
@@ -47,6 +64,8 @@ export interface Scenario {
   colorLight: string
   skills: string[]
   stages: Stage[]
+  rootStageId?: string
+  outcomes?: ScenarioOutcome[]
   debriefGuide: string[]
 }
 
