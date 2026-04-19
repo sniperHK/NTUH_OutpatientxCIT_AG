@@ -1,6 +1,6 @@
 # 門診暴力應對專案 - 上下文共享
 
-> 最後更新：2026-04-17 by Claude Code
+> 最後更新：2026-04-19 by Claude Code
 
 ## 基本規範
 
@@ -13,22 +13,25 @@
 門診品管圈改善專案，導入 CIT (Crisis Intervention Team) 訓練，提升門診護理師對暴力情境的應對能力。包含教學網站、課程設計、評核工具。
 
 ### 教學網站
-- **公開網址**：https://cit.henry780930.com/
-- **NAS 部署**：http://sniperhk920:8904/（Docker nginx, port 8904）
-- **技術棧**：React 19 + Vite + Tailwind CSS + Slidev
+- **公開網址**：https://cit.henry780930.com/（Cloudflare Tunnel）
+- **NAS 部署**：http://sniperhk920:8904/（Docker Node:22 + Express）
+- **技術棧**：React 19 + Vite + Tailwind CSS + Slidev + Express/SQLite
 - **GitHub**：https://github.com/sniperHK/NTUH_OutpatientxCIT_AG
+- **正式名稱**：CIT 危機處理介入訓練工作坊（對齊簽文 1151900387）
 
 ### 網站功能
 | 功能 | 狀態 | 說明 |
 |------|------|------|
-| 6 學習模組 (M01-M06) | ✅ | markdown 門診版內容 + ContentPage 渲染 |
+| 7 學習模組 (M01-M07) | ✅ | M07 整合前測會議發現（持械/第二支援/年資派工/鄰診支援）|
 | 4 互動情境 (S01-S04) | ✅ | 分支式 SP 情境 + ScenarioPlayer |
 | 3 互動決策樹 | ✅ | 互動引導模式 + 全景圖 |
 | 37 題測驗 | ✅ | 前測/後測/完整練習 |
-| 4 套 Slidev 簡報 | ✅ | S-M01/S-M03/S-M04/S-M05 |
+| 4 套 Slidev 簡報 | ✅ | S-M01/S-M03/S-M04/S-M05（封面附 QR code）|
 | 學員手冊 | ✅ | 速查卡 (HandoutPage) |
-| 學習路線 | ✅ | 含 4/20 課程時間表 |
-| NAS + Cloudflare 部署 | ✅ | CI/CD via GitHub Actions |
+| 學習路線 | ✅ | 含 4/20 課程時間表 + 前測會議連結 |
+| 留言板 | ✅ | Express + SQLite 自架，匿名/暱稱 + 回覆 + 按讚 |
+| 六感評估法 | ✅ | 眼耳鼻舌身意（TW-CIT 2023）取代 STAMP |
+| NAS + Cloudflare 部署 | ✅ | CI/CD via GitHub Actions + 手動 deploy.sh |
 
 ### 主要文件
 | 檔案 | 說明 |
@@ -67,20 +70,25 @@
 ## Git 歷史
 
 ```
+* 6569626 追加：server/ 後端檔案 + message-board lib + MessageBoardPage
+* 852bd0a 新增 NAS 自架留言板（Express + SQLite）
+* 2dc78ad 加入 cit-qr.svg/png QR code 圖片
+* d0c1423 STAMP → 眼耳鼻舌身意 + 首頁與 Slidev 封面加 QR code
+* 09cc7d3 正名：門診暴力去激化 → CIT 危機處理介入訓練 (對齊簽文1151900387)
+* 82d5feb 整合前測會議發現：新增 M07 模組、補強教材、存檔會議記錄
+* b3cc6b9 收官：更新上下文共享、納入工作坊文件、修正 gitignore
 * 5ba417c 修正三項：學習路線、互動決策樹、投影片首頁
 * c4d50d8 新增 Slidev 課堂簡報系統（4 套投影片）
 * cb61bf1 修正模組內容載入：改用 fetch 從 public/ 讀取 markdown
-* 81114ca 強化教材內容：模組補強、S04 情境、題庫擴充、跨模組銜接
-* 091d419 改為 NAS 部署（移除 GitHub Pages）
-* 06624e8 新增 GitHub Pages 部署 workflow 並修正 base path
-* fd9858a 建立 CIT 門診暴力去激化教學網站
-* ea07e7f bootstrap agent context and age scaffold
-* c98b8ec 更新 .shared-ai-context Git 歷史
-* 7d3b078 初始化門診暴力應對專案
 ```
 
 ## 變更日誌
 
+- [2026-04-19] Claude Code: 收官 — 全部同步完成，專案狀態更新
+- [2026-04-18] Claude Code: 新增 NAS 自架留言板（Express + SQLite，取代 Supabase 方案）
+- [2026-04-18] Claude Code: STAMP → 眼耳鼻舌身意（TW-CIT 2023 林皓陽/劉英國教材）、首頁與 Slidev 封面加 QR code
+- [2026-04-17] Claude Code: 正名「門診暴力去激化」→「CIT 危機處理介入訓練」對齊簽文 1151900387
+- [2026-04-17] Claude Code: 整合前測會議發現，新增 M07 門診現場應變實務模組
 - [2026-04-17] Claude Code: 修正學習路線對齊4/20時間表、互動決策樹改為step-by-step引導、投影片首頁修正日期
 - [2026-04-16] Claude Code: 新增 Slidev 簡報系統（4套投影片）、Cloudflare 轉發 cit.henry780930.com
 - [2026-04-16] Claude Code: 強化教材內容、新增 S04 情境、題庫擴充至 37 題、跨模組銜接
