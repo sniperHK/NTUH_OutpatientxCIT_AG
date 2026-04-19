@@ -9,6 +9,7 @@ import QuizPage from '@/pages/QuizPage'
 import HandoutPage from '@/pages/HandoutPage'
 import SlidesPage from '@/pages/SlidesPage'
 import MessageBoardPage from '@/pages/MessageBoardPage'
+import MeetingPage from '@/pages/MeetingPage'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/handout" element={<HandoutPage />} />
         <Route path="/messages" element={<MessageBoardPage />} />
         <Route path="/roadmap" element={<RoadmapPage />} />
+        <Route path="/meetings/:id" element={<MeetingPage />} />
       </Routes>
     </Layout>
   )

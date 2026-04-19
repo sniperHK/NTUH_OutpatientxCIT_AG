@@ -84,6 +84,7 @@
 
 ## 變更日誌
 
+- [2026-04-19] Claude Code: 修正暗語用字 阿良 → 阿兩（典故：烏龍派出所兩津勘吉），全站 10 檔同步（M02/M03/M07 docs + web/public、HandoutPage.tsx、0205 逐字稿、前測會議記錄）
 - [2026-04-19] Claude Code: 收官 — 全部同步完成，專案狀態更新
 - [2026-04-18] Claude Code: 新增 NAS 自架留言板（Express + SQLite，取代 Supabase 方案）
 - [2026-04-18] Claude Code: STAMP → 眼耳鼻舌身意（TW-CIT 2023 林皓陽/劉英國教材）、首頁與 Slidev 封面加 QR code

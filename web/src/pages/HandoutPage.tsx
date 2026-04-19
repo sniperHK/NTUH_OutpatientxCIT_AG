@@ -160,24 +160,85 @@ export default function HandoutPage() {
           <span className="w-7 h-7 rounded-full bg-[#D6DBDF] text-[#2C3E50] flex items-center justify-center text-xs font-bold">6</span>
           重要聯繫資訊
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="font-semibold text-[#2C3E50]">駐警隊</div>
-            <p className="text-gray-500">東址 / 西址 / 兒醫 分機</p>
-          </div>
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="font-semibold text-[#2C3E50]">管區派出所</div>
-            <p className="text-gray-500">（請填入管區電話）</p>
-          </div>
-          <div className="bg-gray-50 rounded-lg p-3">
+
+        {/* 6A. 緊急通報 */}
+        <h3 className="text-sm font-semibold text-[#C0392B] mb-2 mt-2">🚨 緊急通報</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm mb-4">
+          <div className="bg-[#FADBD8] rounded-lg p-3">
             <div className="font-semibold text-[#2C3E50]">報警</div>
-            <p className="text-gray-500 font-bold">110</p>
+            <a href="tel:110" className="text-[#C0392B] font-bold text-lg">110</a>
           </div>
           <div className="bg-gray-50 rounded-lg p-3">
-            <div className="font-semibold text-[#2C3E50]">心理諮詢</div>
-            <p className="text-gray-500">院內 EAP / 衛生局安心服務</p>
+            <div className="font-semibold text-[#2C3E50]">院內駐警隊（暗語：阿兩阿兩）</div>
+            <p className="text-gray-500 text-xs">東址：分機 <span className="font-mono">_____</span></p>
+            <p className="text-gray-500 text-xs">西址：分機 <span className="font-mono">_____</span></p>
+            <p className="text-gray-500 text-xs">兒醫：分機 <span className="font-mono">_____</span></p>
+          </div>
+          <div className="bg-gray-50 rounded-lg p-3 sm:col-span-2">
+            <div className="font-semibold text-[#2C3E50]">管區 — 中正第一分局</div>
+            <p className="text-gray-600 text-xs">台北市中正區公園路 15 號 ｜ 介壽派出所轄區</p>
+            <a href="tel:0223716426" className="text-[#C0392B] font-bold">02-2371-6426</a>
           </div>
         </div>
+
+        {/* 6B. 心理諮詢支持 */}
+        <h3 className="text-sm font-semibold text-[#1E8449] mb-2 mt-4">🧠 心理諮詢支持（事件後關懷）</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm mb-4">
+          <div className="bg-[#D5F5E3] rounded-lg p-3">
+            <div className="font-semibold text-[#2C3E50]">衛福部 1925 安心專線</div>
+            <p className="text-gray-600 text-xs">24h 免費・全國・依舊愛我</p>
+            <a href="tel:1925" className="text-[#1E8449] font-bold text-lg">1925</a>
+          </div>
+          <div className="bg-[#D5F5E3] rounded-lg p-3">
+            <div className="font-semibold text-[#2C3E50]">生命線 / 張老師</div>
+            <div className="flex gap-3 mt-1">
+              <a href="tel:1995" className="text-[#1E8449] font-semibold">1995 生命線</a>
+              <a href="tel:1980" className="text-[#1E8449] font-semibold">1980 張老師</a>
+            </div>
+          </div>
+          <div className="bg-gray-50 rounded-lg p-3 sm:col-span-2">
+            <div className="font-semibold text-[#2C3E50]">院內 EAP 員工協助方案</div>
+            <p className="text-gray-500 text-xs">分機 <span className="font-mono">_____</span>（請洽人事室或員工關懷窗口）</p>
+          </div>
+        </div>
+
+        {/* 6C. 院內參考連結 */}
+        <h3 className="text-sm font-semibold text-[#2980B9] mb-2 mt-4">📚 院內知識平台連結</h3>
+        <div className="space-y-2 text-sm mb-4">
+          <a
+            href="https://km.ntuh.gov.tw/km/readdocument.aspx?documentId=44104"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-[#D6EAF8] rounded-lg p-3 hover:bg-[#AED6F1] transition-colors"
+          >
+            <div className="font-semibold text-[#2980B9]">→ 院內暴力行為應變作業要點</div>
+            <p className="text-gray-600 text-xs">第六章 6.26 ｜ KM 平台 documentId=44104</p>
+          </a>
+          <a
+            href="https://km.ntuh.gov.tw/km/readdocument.aspx?documentId=90347"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-[#D6EAF8] rounded-lg p-3 hover:bg-[#AED6F1] transition-colors"
+          >
+            <div className="font-semibold text-[#2980B9]">→ 員工關懷計畫</div>
+            <p className="text-gray-600 text-xs">KM 平台 documentId=90347</p>
+          </a>
+        </div>
+
+        {/* 6D. 工作坊聯絡 */}
+        <h3 className="text-sm font-semibold text-[#8E44AD] mb-2 mt-4">📧 工作坊聯絡窗口</h3>
+        <div className="bg-[#E8DAEF] rounded-lg p-3 text-sm">
+          <div className="font-semibold text-[#2C3E50]">林雯霞 護理長</div>
+          <div className="text-gray-600 text-xs">CIT 危機處理介入訓練工作坊聯絡人</div>
+          <div className="flex flex-wrap gap-3 mt-1">
+            <a href="tel:266883" className="text-[#8E44AD] font-semibold">分機 266883</a>
+            <a href="mailto:betty0505@ntuh.gov.tw" className="text-[#8E44AD] font-semibold">betty0505@ntuh.gov.tw</a>
+          </div>
+        </div>
+
+        <p className="text-xs text-gray-400 mt-4 text-center print:text-gray-600">
+          標示 <span className="font-mono">_____</span> 之欄位為院內機密分機，請依實際單位填入後再列印分發
+        </p>
       </section>
     </div>
   )
