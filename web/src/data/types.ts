@@ -54,6 +54,8 @@ export interface ScenarioOutcome {
   teachingPoints?: string[]
 }
 
+export type CrisisModality = 'LOR' | 'LOC' | 'LOH' | 'LOP'
+
 export interface Scenario {
   id: string
   title: string
@@ -63,6 +65,10 @@ export interface Scenario {
   color: string
   colorLight: string
   skills: string[]
+  /** 精神危機四大樣態標籤（可複選，依據 M02 第二節） */
+  modalities?: CrisisModality[]
+  /** 教學重點說明此情境為何歸類於某樣態 */
+  modalityNote?: string
   stages: Stage[]
   rootStageId?: string
   outcomes?: ScenarioOutcome[]

@@ -136,6 +136,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/glossary" className={navLinkClass} onClick={onClose}>
+                  名詞對照表
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/messages" className={navLinkClass} onClick={onClose}>
                   留言板
                 </NavLink>

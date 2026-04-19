@@ -10,6 +10,9 @@ const S04: Scenario = {
   color: '#8E44AD',
   colorLight: '#E8DAEF',
   skills: ['六感評估', 'CABD 初評', '居安思危', '團隊支援'],
+  modalities: ['LOR'],
+  modalityNote:
+    '病人自言自語、對空揮手、衣著凌亂，明顯呈現 LOR（失去現實感）— 幻聽、脫離現實、可能有妄想。應對重點：不否定幻覺內容、不爭辯、避免突然動作／觸摸、先排除身體急症（參考 M01 行為急症三大來源）、必要時走精神衛生法 48 條護送就醫。',
   rootStageId: 'T0',
   stages: [
     {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { courseInfo, modules, scenarioMetas, tools, slideOrder, slideMeta } from '@/data/siteMeta'
-import { Presentation, MessageSquare } from 'lucide-react'
+import { Presentation, MessageSquare, BookOpen, Zap } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -30,6 +30,88 @@ export default function HomePage() {
         >
           開始學習
         </Link>
+      </section>
+
+      {/* 核心框架速查 */}
+      <section>
+        <h2 className="text-xl font-bold text-[#1B2A4A] mb-1 flex items-center gap-2">
+          <Zap size={22} className="text-[#F39C12]" />
+          核心框架速查
+        </h2>
+        <p className="text-sm text-gray-500 mb-4">課堂上最常引用的四個框架 — 上課前先掃一遍</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* 卡片 1：四大樣態 */}
+          <Link
+            to="/content/M02#section-2"
+            className="block bg-gradient-to-br from-[#D6EAF8] to-white rounded-lg border border-[#2980B9]/20 p-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="text-xs font-mono text-[#2980B9] mb-1">M02</div>
+            <h3 className="font-semibold text-[#1B2A4A] mb-2">精神危機四大樣態</h3>
+            <ul className="text-xs text-gray-600 space-y-0.5">
+              <li>• <b>LOR</b> 失去現實感</li>
+              <li>• <b>LOC</b> 失去控制感</li>
+              <li>• <b>LOH</b> 失去希望</li>
+              <li>• <b>LOP</b> 失去穩定想法</li>
+            </ul>
+          </Link>
+
+          {/* 卡片 2：言語降階五步驟 */}
+          <Link
+            to="/content/M04#section-6"
+            className="block bg-gradient-to-br from-[#E8DAEF] to-white rounded-lg border border-[#8E44AD]/20 p-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="text-xs font-mono text-[#8E44AD] mb-1">M04</div>
+            <h3 className="font-semibold text-[#1B2A4A] mb-2">言語降階五步驟</h3>
+            <ol className="text-xs text-gray-600 space-y-0.5">
+              <li>1. 心理建設</li>
+              <li>2. 目標確認</li>
+              <li>3. 戰術三寶</li>
+              <li>4. 控制輸出</li>
+              <li>5. 辨識→同理→轉移</li>
+            </ol>
+          </Link>
+
+          {/* 卡片 3：降階兵法 */}
+          <Link
+            to="/content/M07#zero"
+            className="block bg-gradient-to-br from-[#FDEBD0] to-white rounded-lg border border-[#E67E22]/20 p-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="text-xs font-mono text-[#E67E22] mb-1">M07</div>
+            <h3 className="font-semibold text-[#1B2A4A] mb-2">降階兵法</h3>
+            <ul className="text-xs text-gray-600 space-y-0.5">
+              <li>上兵 <b>伐謀</b>：預防</li>
+              <li>其次 <b>伐交</b>：言語</li>
+              <li>其次 <b>伐兵</b>：備援</li>
+              <li>其下 <b>攻城</b>：強制</li>
+            </ul>
+          </Link>
+
+          {/* 卡片 4：法律速查 */}
+          <Link
+            to="/content/M07#section-6"
+            className="block bg-gradient-to-br from-[#FADBD8] to-white rounded-lg border border-[#C0392B]/20 p-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="text-xs font-mono text-[#C0392B] mb-1">法律附錄</div>
+            <h3 className="font-semibold text-[#1B2A4A] mb-2">精神衛生法 48 條</h3>
+            <ul className="text-xs text-gray-600 space-y-0.5">
+              <li>「有傷害之虞」即可通報</li>
+              <li>送醫通常都不會錯</li>
+              <li className="pt-1 font-semibold text-[#C0392B]">☎ (049) 255-1010</li>
+              <li className="text-gray-400 text-[10px]">24h 諮詢專線</li>
+            </ul>
+          </Link>
+        </div>
+
+        {/* 名詞對照表連結 */}
+        <div className="mt-4">
+          <Link
+            to="/glossary"
+            className="inline-flex items-center gap-2 text-sm text-[#2980B9] hover:underline"
+          >
+            <BookOpen size={16} />
+            更多縮寫與術語速查 → 名詞對照表
+          </Link>
+        </div>
       </section>
 
       {/* 學習模組 */}

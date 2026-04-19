@@ -9,6 +9,9 @@ const S01: Scenario = {
   color: '#C0392B',
   colorLight: '#FADBD8',
   skills: ['停聽同選', 'DEFUSE', '暴力曲線辨識', '團隊支援'],
+  modalities: ['LOC'],
+  modalityNote:
+    '女兒因長時間等候而情緒衝動，主要呈現 LOC（失去控制感）— 易怒、催促、對流程失去耐心。應對重點：給予選擇感（「先量血壓 vs 先查進度」）、轉移焦點（從「還要多久」轉到「阿嬤現在安不安全」）。',
   rootStageId: 'T0',
   stages: [
     {

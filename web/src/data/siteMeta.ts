@@ -126,16 +126,31 @@ export const scenarioMetas = [
     color: '#8E44AD',
     colorLight: '#E8DAEF',
   },
+  {
+    id: 'S05',
+    title: '幻聽命令（LOR）',
+    subtitle: '病人受命令性幻聽驅使，疑似要傷害他人',
+    color: '#7D3C98',
+    colorLight: '#E8DAEF',
+  },
+  {
+    id: 'S06',
+    title: '失智奶奶持刀（LOR + LOC）',
+    subtitle: '80 歲失智病人懷疑先生外遇，拿刀威脅',
+    color: '#6C3483',
+    colorLight: '#D6DBDF',
+  },
 ]
 
-export const slideOrder = ['S-M01', 'S-M03', 'S-M04', 'S-M05'] as const
+export const slideOrder = ['S-M01', 'S-M03', 'S-M04', 'S-M05', 'S-M07'] as const
 export type SlideId = (typeof slideOrder)[number]
 
 export const slideMeta: Record<SlideId, { title: string; desc: string; color: string; colorLight: string; instructor: string }> = {
   'S-M01': { title: '暴力曲線與風險辨識', desc: 'M01 + M02 — 眼耳鼻舌身意, CABD, 暴力曲線五階段', color: '#2980B9', colorLight: '#D6EAF8', instructor: '林皓陽' },
-  'S-M03': { title: '環境察覺與自我調控', desc: 'M03 — 安全站位、環境掃描、Box Breathing', color: '#E67E22', colorLight: '#FDEBD0', instructor: '林皓陽' },
-  'S-M04': { title: '言語降階與 DEFUSE', desc: 'M04 — DEFUSE 六步驟、停聽同選、話術演練', color: '#C0392B', colorLight: '#FADBD8', instructor: '林皓陽' },
+  'S-M03': { title: '環境察覺與自我調控', desc: 'M03 — 安全站位、環境掃描、暗語系統、Box Breathing', color: '#E67E22', colorLight: '#FDEBD0', instructor: '林皓陽' },
+  'S-M04': { title: '言語降階與 DEFUSE', desc: 'M04 — DEFUSE 六步驟、五步驟實務版、停聽同選', color: '#C0392B', colorLight: '#FADBD8', instructor: '林皓陽' },
   'S-M05': { title: '團隊合作與通報升級', desc: 'M05 + M06 — 三角色、通報決策樹、案例 Debrief', color: '#1E8449', colorLight: '#D5F5E3', instructor: '劉政亨' },
+  'S-M07': { title: '現場應變實務', desc: 'M07 — 降階兵法、持械五不、精神衛生法 48 條', color: '#34495E', colorLight: '#D5DBDB', instructor: '林皓陽' },
 }
 
 export const courseInfo = {

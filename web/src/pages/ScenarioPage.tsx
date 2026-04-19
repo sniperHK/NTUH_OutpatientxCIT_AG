@@ -4,6 +4,8 @@ import S01 from '@/data/scenarios/S01'
 import S02 from '@/data/scenarios/S02'
 import S03 from '@/data/scenarios/S03'
 import S04 from '@/data/scenarios/S04'
+import S05 from '@/data/scenarios/S05'
+import S06 from '@/data/scenarios/S06'
 import type { Scenario } from '@/data/types'
 
 const scenarioMap: Record<string, Scenario> = {
@@ -11,6 +13,8 @@ const scenarioMap: Record<string, Scenario> = {
   S02,
   S03,
   S04,
+  S05,
+  S06,
 }
 
 export default function ScenarioPage() {
@@ -74,6 +78,16 @@ export default function ScenarioPage() {
           </div>
 
           <div className="flex flex-wrap gap-1.5 mt-3">
+            {scenario.modalities?.map((m) => (
+              <span
+                key={m}
+                className="px-2 py-0.5 rounded-full text-xs font-bold border"
+                style={{ borderColor: scenario.color, color: scenario.color, backgroundColor: 'white' }}
+                title="精神危機四大樣態（見名詞對照表）"
+              >
+                {m}
+              </span>
+            ))}
             {scenario.skills.map((skill) => (
               <span
                 key={skill}
@@ -84,6 +98,12 @@ export default function ScenarioPage() {
               </span>
             ))}
           </div>
+          {scenario.modalityNote && (
+            <div className="mt-3 p-3 rounded-lg bg-white/70 text-xs text-gray-700 leading-relaxed">
+              <span className="font-semibold text-gray-600">📍 樣態分析：</span>
+              {scenario.modalityNote}
+            </div>
+          )}
         </div>
       </div>
 

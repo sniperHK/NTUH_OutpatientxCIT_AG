@@ -9,6 +9,9 @@ const S02: Scenario = {
   color: '#E67E22',
   colorLight: '#FDEBD0',
   skills: ['停聽同選', 'DEFUSE', '設下界線', '團隊支援'],
+  modalities: ['LOP'],
+  modalityNote:
+    '病人執著於「收費不合理」單一主題，不願接受替代解釋，呈現 LOP（失去穩定想法）— 反覆同一議題、偏執於既定結論。應對重點：縮小決策範圍（兩個選項二選一）、轉移焦點從情緒到任務（「幫您調上次處方比對」）。',
   rootStageId: 'T0',
   stages: [
     {

@@ -735,4 +735,127 @@ export const questions: Question[] = [
     explanation:
       '14 項評估表沒有硬性截斷點，重點是「協助你向上通報時有結構化語言」— 例如：「病人符合 5 項風險指標，其中 3 項涉及自他傷」。大部分項目可由觀察與家屬資訊取得，不需要一一逐項問病人。這也是精神衛生法 48 條實務上「客觀事實」最好的紀錄工具，保護通報者。',
   },
+  // === 平衡題庫：M05/M07 + 跨模組整合 (Q48-Q55) ===
+  {
+    id: 'Q48',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M07',
+    stem: '依據 M07「伐兵／攻城前 checklist」，**安全壓制**一個激動病人通常需要幾個人？',
+    options: [
+      { id: 'A', text: '2 人', isCorrect: false },
+      { id: 'B', text: '3 人', isCorrect: false },
+      { id: 'C', text: '5 人', isCorrect: true },
+      { id: 'D', text: '看現場情況，越多越好', isCorrect: false },
+    ],
+    explanation:
+      '安全壓制需要 5 個人：1 人主責溝通（避免增加刺激）、4 人各控制一個肢體。少於 5 人容易導致病人掙脫、壓制者受傷、或用力失控造成姿勢性窒息。這也是為什麼「不要單人強制處置」是 M07 的核心原則。安全 = 事先計畫 + 大家一起。',
+  },
+  {
+    id: 'Q49',
+    type: 'scenario',
+    category: 'both',
+    module: 'M07',
+    stem: '家屬來櫃檯說：「爸爸不吃藥、不看醫生，在家威脅要打媽媽。」病人本人目前在候診，無明顯激動，**無明確精神科診斷**。依據精神衛生法第 48 條，正確作法是？',
+    scenarioContext: '精神衛生法 48 條「有傷害之虞」要件判斷',
+    options: [
+      { id: 'A', text: '沒有醫師確診為精神疾病，不能通報送醫', isCorrect: false },
+      { id: 'B', text: '以客觀事實（家屬陳述威脅、拒絕就醫）合理懷疑「有傷害他人之虞」，應通知衛生局並可通知警察', isCorrect: true },
+      { id: 'C', text: '要求家屬自行勸爸爸就醫，否則無法處理', isCorrect: false },
+      { id: 'D', text: '必須等病人在診間發生暴力才能通報', isCorrect: false },
+    ],
+    explanation:
+      '精神衛生法第 48 條關鍵字是「有傷害他人或自己，**或有傷害之虞**」— 不需要等實際發生。臺灣法院判決：「只要依客觀上所發生事實，有使他人可認為患者可疑為罹有精神疾病而有送醫檢查之必要，即難認通報送醫者有何違法之故意」。家屬陳述威脅與拒絕就醫都是「客觀事實」。模糊時可先撥 (049) 255-1010 諮詢。',
+  },
+  {
+    id: 'Q50',
+    type: 'single-choice',
+    category: 'post',
+    module: 'M07',
+    stem: '2019 年嘉義鐵路警察李承翰事件給一線人員的最重要教訓是？',
+    options: [
+      { id: 'A', text: '精神病人都是危險的，應一律拒絕接觸', isCorrect: false },
+      { id: 'B', text: '「不送醫怕被告妨害自由」這個恐懼，讓人員錯失保護的機會；法律其實站在合理懷疑送醫這邊', isCorrect: true },
+      { id: 'C', text: '家屬的判斷不可信', isCorrect: false },
+      { id: 'D', text: '只有警察才能執行強制送醫', isCorrect: false },
+    ],
+    explanation:
+      '2019 年早上，鄭姓男子陳述朋友與女兒要害他，家屬請求強制送醫。當班員警因擔心「被告妨害自由」未執行。該男子當晚在嘉義火車站刺死鐵警李承翰，後鑑定為思覺失調症發作。教訓：**「怕被告」的恐懼讓一線人員錯失保護自己、他人、病人本人的機會**。精神衛生法 48 條 + 法院判決都站在「合理懷疑即可送醫」這邊。',
+  },
+  {
+    id: 'Q51',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M05',
+    stem: '為什麼建議 Pre-SBAR 通報時加入「四大樣態標籤」（LOR/LOC/LOH/LOP）？',
+    options: [
+      { id: 'A', text: '讓駐警知道病人的精神科診斷', isCorrect: false },
+      { id: 'B', text: '讓駐警／支援同仁到場前就調整應對策略（例如 LOR 主導時不正面對視、不突然動作）', isCorrect: true },
+      { id: 'C', text: '為了精確統計醫院內精神病盛行率', isCorrect: false },
+      { id: 'D', text: '讓病人聽到自己的「代號」', isCorrect: false },
+    ],
+    explanation:
+      '不同樣態的病人需要不同應對：LOR（失去現實感）要避免突然動作、不否定幻覺；LOC（失去控制感）要給選擇感、減少刺激；LOH（失去希望）要先建立連結、評估自傷；LOP（失去穩定想法）要轉移焦點、縮小選擇。駐警／同仁到場前就知道主導樣態，可節省數秒臨場判斷，也減少誤激化風險。',
+  },
+  {
+    id: 'Q52',
+    type: 'scenario',
+    category: 'both',
+    module: 'M05',
+    stem: '同事降階 5 分鐘未見效，要你接手主責溝通者。你的第一句話應該是？',
+    scenarioContext: '主責交接時的起手式',
+    options: [
+      { id: 'A', text: '「不好意思，請您從頭跟我說一次。」', isCorrect: false },
+      { id: 'B', text: '「小美先去忙，這裡我來。」（然後面對病人）「我注意到您在跟我同事討論等候時間的事，您是不是覺得很焦慮？想要有人幫您把流程問清楚？」', isCorrect: true },
+      { id: 'C', text: '「先生您冷靜點，別把氣出在她身上。」', isCorrect: false },
+      { id: 'D', text: '「我是護理長，您的問題我來處理就好。」', isCorrect: false },
+    ],
+    explanation:
+      '正確起手式結合三個技巧：(1) 明確向原主責宣告交接（減少雙主責混亂）；(2) 用 M04 同理三句公式「我注意到（事實）／您是不是覺得（情緒）／想要（需求）」展示「我有在聽」，避免病人被迫重頭講。A 錯在讓病人重頭來過；C 否定情緒；D 擺階級反而增加對立。',
+  },
+  {
+    id: 'Q53',
+    type: 'single-choice',
+    category: 'pre',
+    module: 'M03',
+    stem: '你被病人擋在單門診間內（LOC 失去控制感）。下列哪組動作組合最能降低危險？',
+    options: [
+      { id: 'A', text: '大聲斥責 + 試圖推開 + 拿物品防身', isCorrect: false },
+      { id: 'B', text: '家具建立屏障 + 持續平穩對話 + 用「要不要坐著說」轉移焦點 + 掙脫時朝出口方向', isCorrect: true },
+      { id: 'C', text: '保持安靜、完全不動，等支援到場', isCorrect: false },
+      { id: 'D', text: '假裝同意病人所有訴求', isCorrect: false },
+    ],
+    explanation:
+      '正確組合對應 M03 + M04：(1) 家具屏障爭取空間（環境）；(2) 持續對話爭取時間（降階）；(3) 轉移焦點「從站到坐」（五招之一，打斷 LOC 衝動）；(4) 掙脫時朝出口方向（非遠離）。A 升級衝突；C 完全靜止反而讓對方無法釋放情緒，容易爆發；D 虛假同意會在被戳穿時讓情勢更糟。',
+  },
+  {
+    id: 'Q54',
+    type: 'single-choice',
+    category: 'post',
+    module: 'M06',
+    stem: '你不確定某情境是否要啟動強制送醫（精神衛生法 48 條）。**最好的第一通電話**是？',
+    options: [
+      { id: 'A', text: '直接撥 110 報警', isCorrect: false },
+      { id: 'B', text: '衛福部 24 小時精神醫療緊急處置線上諮詢專線 (049) 255-1010', isCorrect: true },
+      { id: 'C', text: '撥給病人的家屬要他們自行處理', isCorrect: false },
+      { id: 'D', text: '等下一班同事來上班再決定', isCorrect: false },
+    ],
+    explanation:
+      '(049) 255-1010 是衛福部 24h 專線，專門協助「要不要送醫／怎麼送醫」的判斷。打這通電話有三個好處：(1) 有衛生系統人員協助判讀精神衛生法適用性；(2) 建立溝通紀錄保護通報者；(3) 可三方通話（+ 110 或駐警）。比直接報警或撒手不管都適合，尤其遇到非典型或情境不明時。',
+  },
+  {
+    id: 'Q55',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M04',
+    stem: '言語降階五步驟中，「第五步：開始用招」的三招依序是？',
+    options: [
+      { id: 'A', text: '辨識情緒 → 同理回應 → 轉移焦點', isCorrect: true },
+      { id: 'B', text: '同理回應 → 辨識情緒 → 威脅警告', isCorrect: false },
+      { id: 'C', text: '說服 → 解釋 → 道歉', isCorrect: false },
+      { id: 'D', text: '轉移焦點 → 威脅警告 → 強制處理', isCorrect: false },
+    ],
+    explanation:
+      '三招順序對應神經科學：(1) **辨識情緒**（affect labeling）— 先在心裡為病人與自己的情緒命名，把活動從杏仁核轉到大腦皮質；(2) **同理回應**（我注意到／您是不是覺得／想要）— 展示「我聽見了」，降低對峙；(3) **轉移焦點**（身/坐/事/選/任）— 把注意力從情緒拉走。順序不能顛倒，同理建立在辨識之上，轉移建立在同理之上。',
+  },
 ]

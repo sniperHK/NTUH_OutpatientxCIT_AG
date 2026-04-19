@@ -9,6 +9,9 @@ const S03: Scenario = {
   color: '#8E44AD',
   colorLight: '#E8DAEF',
   skills: ['環境察覺', 'DEFUSE — Ensure Safety', '團隊支援啟動'],
+  modalities: ['LOC'],
+  modalityNote:
+    '病人因慢性疼痛積累挫折，突然逼近護理師，呈現 LOC（失去控制感）極端表現 — 衝動、逾越物理距離、握拳。應對重點：M04 戰術三寶（距離/掩體/隨時面朝）、21 英呎法則（盡量讓病人坐著）、不要硬碰硬。',
   rootStageId: 'T0',
   stages: [
     {
