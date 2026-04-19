@@ -5,13 +5,27 @@ import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import { ChevronLeft, ChevronRight, Video, Calendar, MapPin } from 'lucide-react'
 
+type Clip = {
+  url?: string
+  label?: string
+  duration?: string
+}
+
+type Session = {
+  title: string
+  clips: Clip[]
+}
+
 type MeetingMeta = {
   title: string
   date: string
   location: string
   file: string
-  videoUrl?: string
+  sessions: Session[]
 }
+
+const BASE = import.meta.env.BASE_URL
+const V = (p: string) => `${BASE}videos/${p}`
 
 const meetingMeta: Record<string, MeetingMeta> = {
   pretest1: {
@@ -19,18 +33,89 @@ const meetingMeta: Record<string, MeetingMeta> = {
     date: '2026-04-07（二）',
     location: '內科部門診 13 診',
     file: 'pretest1.md',
+    sessions: [
+      {
+        title: '第一場',
+        clips: [
+          { url: V('pretest1/session-a/clip-01.mp4'), duration: '1:22' },
+          { url: V('pretest1/session-a/clip-02.mp4'), duration: '1:34' },
+          { url: V('pretest1/session-a/clip-03.mp4'), duration: '0:11' },
+        ],
+      },
+      {
+        title: '第二場',
+        clips: [
+          { url: V('pretest1/session-b/clip-01.mp4'), duration: '1:18' },
+          { url: V('pretest1/session-b/clip-02.mp4'), duration: '2:23' },
+        ],
+      },
+    ],
   },
   pretest2: {
     title: '前測第 2 場 — 精神部',
     date: '2026-04-09（四）',
     location: '精神部門診',
     file: 'pretest2.md',
+    sessions: [
+      {
+        title: '第一場',
+        clips: [
+          { url: V('pretest2/session-a/clip-01.mp4'), duration: '2:22' },
+          { url: V('pretest2/session-a/clip-02.mp4'), duration: '3:41' },
+        ],
+      },
+      {
+        title: '第二場',
+        clips: [
+          { url: V('pretest2/session-b/clip-01.mp4'), duration: '2:42' },
+          { url: V('pretest2/session-b/clip-02.mp4'), duration: '2:20' },
+          { url: V('pretest2/session-b/clip-03.mp4'), duration: '0:14' },
+          { url: V('pretest2/session-b/clip-04.mp4'), duration: '3:05' },
+          { url: V('pretest2/session-b/clip-05.mp4'), duration: '2:18' },
+          { url: V('pretest2/session-b/clip-06.mp4'), duration: '5:22' },
+        ],
+      },
+    ],
   },
 }
 
 const order = ['pretest1', 'pretest2'] as const
 const STEP2_COLOR = '#8E44AD'
-const BASE = import.meta.env.BASE_URL
+
+function ClipPlayer({ clip, label }: { clip: Clip; label: string }) {
+  return (
+    <div>
+      <div className="flex items-baseline justify-between mb-1">
+        <p className="text-xs font-medium text-gray-600">{label}</p>
+        {clip.duration && (
+          <p className="text-[10px] text-gray-400 font-mono">{clip.duration}</p>
+        )}
+      </div>
+      <div className="relative aspect-video rounded-lg overflow-hidden bg-black">
+        {clip.url ? (
+          <video
+            controls
+            preload="metadata"
+            className="w-full h-full object-contain"
+          >
+            <source src={clip.url} type="video/mp4" />
+            您的瀏覽器不支援 video 標籤。
+          </video>
+        ) : (
+          <div
+            className="w-full h-full flex flex-col items-center justify-center gap-1 border-2 border-dashed rounded-lg"
+            style={{ borderColor: STEP2_COLOR + '66', backgroundColor: STEP2_COLOR + '0A' }}
+          >
+            <Video size={28} style={{ color: STEP2_COLOR }} strokeWidth={1.5} />
+            <p className="text-xs font-medium" style={{ color: STEP2_COLOR }}>
+              待上傳
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
 
 export default function MeetingPage() {
   const { id } = useParams<{ id: string }>()
@@ -114,34 +199,37 @@ export default function MeetingPage() {
         </div>
       </header>
 
-      {/* Video / Placeholder */}
-      <div className="mb-8">
-        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
+      {/* Sessions with clips */}
+      <div className="mb-8 space-y-6">
+        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
           情境模擬錄影
         </h2>
-        <div className="relative aspect-video rounded-lg overflow-hidden">
-          {meta.videoUrl ? (
-            <video
-              controls
-              preload="metadata"
-              className="w-full h-full object-contain bg-black"
+        {meta.sessions.map((session) => (
+          <section key={session.title}>
+            <h3
+              className="text-base font-semibold mb-3 inline-flex items-center gap-2"
+              style={{ color: STEP2_COLOR }}
             >
-              <source src={meta.videoUrl} type="video/mp4" />
-              您的瀏覽器不支援 video 標籤。
-            </video>
-          ) : (
-            <div
-              className="w-full h-full flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-lg"
-              style={{ borderColor: STEP2_COLOR + '66', backgroundColor: STEP2_COLOR + '0A' }}
-            >
-              <Video size={40} style={{ color: STEP2_COLOR }} strokeWidth={1.5} />
-              <p className="text-sm font-medium" style={{ color: STEP2_COLOR }}>
-                情境模擬錄影｜待上傳
-              </p>
-              <p className="text-xs text-gray-500">影片上架後將於此處播放</p>
+              <span
+                className="inline-block w-1 h-4 rounded-sm"
+                style={{ backgroundColor: STEP2_COLOR }}
+              />
+              {session.title}
+              <span className="text-xs font-normal text-gray-400">
+                （{session.clips.length} 段）
+              </span>
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {session.clips.map((clip, idx) => (
+                <ClipPlayer
+                  key={idx}
+                  clip={clip}
+                  label={clip.label ?? `片段 ${idx + 1}`}
+                />
+              ))}
             </div>
-          )}
-        </div>
+          </section>
+        ))}
       </div>
 
       {/* Markdown Content */}

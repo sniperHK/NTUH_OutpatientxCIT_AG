@@ -7,6 +7,7 @@ services:
       - "8904:3000"
     volumes:
       - /volume1/docker/cit-workshop/data:/data
+      - /volume1/docker/cit-workshop/videos:/app/public/videos:ro
     restart: unless-stopped
     mem_limit: 128m
     container_name: cit-workshop

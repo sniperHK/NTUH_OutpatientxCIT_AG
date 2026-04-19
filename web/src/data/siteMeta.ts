@@ -142,7 +142,7 @@ export const courseInfo = {
   title: 'CIT 危機處理介入訓練工作坊',
   subtitle: '115 年臺大醫院護理部',
   courseCode: '202157',
-  date: '115 年 4 月 20 日（一）08:00–12:00',
+  date: '115 年 4 月 20 日（一）08:00–11:45',
   location: '西址第七講堂',
   instructors: ['劉政亨醫師', '林皓陽醫師'],
 }

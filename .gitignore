@@ -24,6 +24,9 @@ web/dist/
 # Slidev build output (generated, not tracked)
 web/public/slides/
 
+# Video assets (hosted via NAS bind-mount, rsynced separately)
+web/public/videos/
+
 # TypeScript build info
 web/tsconfig.tsbuildinfo
 server/node_modules/

@@ -21,12 +21,22 @@ interface SessionRow {
 const schedule: SessionRow[] = [
   {
     time: '08:00–08:10',
-    topic: '課程簡介',
+    topic: '報到',
+    borderColor: '#6B7280',
+  },
+  {
+    time: '08:10–08:15',
+    topic: '開場',
     instructor: '劉政亨醫師',
     borderColor: '#6B7280',
   },
   {
-    time: '08:10–09:00',
+    time: '08:15–08:30',
+    topic: '前測',
+    borderColor: '#F39C12',
+  },
+  {
+    time: '08:30–09:30',
     topic: '醫療職場暴力辨識與風險評估',
     instructor: '林皓陽醫師',
     hours: '1',
@@ -35,44 +45,33 @@ const schedule: SessionRow[] = [
     moduleIds: ['M01', 'M02', 'M03'],
   },
   {
-    time: '09:00–09:10',
+    time: '09:30–09:45',
     topic: '休息',
     isBreak: true,
     borderColor: '#D1D5DB',
   },
   {
-    time: '09:10–10:10',
-    topic: '情境模擬演練（一）：暴力降階溝通技巧',
+    time: '09:45–10:45',
+    topic: '暴力降階溝通與現場應變',
     instructor: '林皓陽醫師',
     hours: '1',
     borderColor: moduleColor('M04'),
     slideId: 'S-M04',
-    moduleIds: ['M04'],
+    moduleIds: ['M04', 'M05', 'M07'],
   },
   {
-    time: '10:10–10:20',
-    topic: '休息',
-    isBreak: true,
-    borderColor: '#D1D5DB',
-  },
-  {
-    time: '10:20–11:20',
-    topic: '情境模擬演練（二）：團隊合作與安全處置',
+    time: '10:45–11:30',
+    topic: '分組情境討論（前測影片 + SP 模擬）',
     instructor: '劉政亨醫師',
-    hours: '2',
+    hours: '1',
     borderColor: moduleColor('M05'),
     slideId: 'S-M05',
-    moduleIds: ['M05', 'M06'],
+    moduleIds: ['M06'],
   },
   {
-    time: '11:20–11:50',
-    topic: '案例分析與綜合討論',
-    borderColor: '#6B7280',
-  },
-  {
-    time: '11:50–12:00',
-    topic: '課程總結',
-    borderColor: '#6B7280',
+    time: '11:30–11:45',
+    topic: '後測',
+    borderColor: '#F39C12',
   },
 ]
 
@@ -245,7 +244,7 @@ export default function RoadmapPage() {
                 Step 3 — 4/20 課堂講授與情境演練
               </h3>
               <p className="text-sm text-gray-600 mb-4">
-                08:00–12:00 西址第七講堂，包含講授、影片示範與情境模擬。
+                08:00–11:45 西址第七講堂，包含前後測、講授、影片示範與分組情境。
               </p>
 
               {/* ── Visual timetable ── */}
@@ -299,7 +298,7 @@ export default function RoadmapPage() {
               </div>
 
               <p className="text-xs text-gray-400 mt-3">
-                合計 4 小時（10:20–12:00 合計 2 時數）
+                合計 3 小時課堂教學（含前後測共 30 分鐘）
               </p>
             </div>
           </div>

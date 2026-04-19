@@ -13,7 +13,7 @@ if ! ssh -o ConnectTimeout=5 "$NAS_HOST" "echo ok" &>/dev/null; then
 fi
 echo "NAS OK"
 
-ssh "$NAS_HOST" "mkdir -p $REMOTE_DIR"
+ssh "$NAS_HOST" "mkdir -p $REMOTE_DIR $REMOTE_DIR/videos"
 
 echo "Syncing files..."
 tar czf - \
@@ -26,9 +26,21 @@ tar czf - \
   --exclude='.env' \
   --exclude='.DS_Store' \
   --exclude='web/public/slides' \
+  --exclude='web/public/videos' \
   web/ docs/modules/ deploy/ server/ \
   | ssh "$NAS_HOST" "cd $REMOTE_DIR && tar xzf -"
 echo "Sync done"
+
+# Videos: synced independently to bind-mounted volume (not baked into image).
+# Use tar|ssh|tar pipe (same pattern as above) — Synology blocks native rsync shell.
+if [ -d "web/public/videos" ] && [ "$(ls -A web/public/videos 2>/dev/null)" ]; then
+  echo "Syncing videos to NAS (tar pipe)..."
+  tar cf - -C web/public/videos . \
+    | ssh "$NAS_HOST" "cd $REMOTE_DIR/videos && tar xf -"
+  echo "Videos synced"
+else
+  echo "No web/public/videos/ locally — skipping video sync"
+fi
 
 echo "Building on NAS..."
 ssh "$NAS_HOST" "export PATH=/usr/local/bin:\$PATH && cd $REMOTE_DIR && docker compose -f deploy/docker-compose.yml build && docker compose -f deploy/docker-compose.yml up -d"
