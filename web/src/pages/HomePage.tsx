@@ -26,7 +26,7 @@ export default function HomePage() {
         <p className="text-sm text-gray-500 mb-6">{courseInfo.location}</p>
         <Link
           to="/content/M01"
-          className="inline-block px-6 py-2.5 rounded-lg bg-[#1B2A4A] text-white font-medium hover:bg-[#2C3E50] transition-colors"
+          className="inline-block px-6 py-2.5 rounded-lg bg-[#1B2A4A] text-white font-medium hover:bg-[#2C3E50] hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95"
         >
           開始學習
         </Link>
@@ -40,7 +40,7 @@ export default function HomePage() {
             <Link
               key={m.id}
               to={`/content/${m.id}`}
-              className="block bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow"
+              className="block bg-white rounded-lg border border-gray-200 p-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex items-center gap-2 mb-2">
                 <span
@@ -68,7 +68,7 @@ export default function HomePage() {
             <Link
               key={s.id}
               to={`/scenario/${s.id}`}
-              className="block bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow"
+              className="block bg-white rounded-lg border border-gray-200 p-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex items-center gap-2 mb-2">
                 <span
@@ -92,7 +92,7 @@ export default function HomePage() {
             <Link
               key={t.id}
               to={`/tools/${t.id}`}
-              className="block bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow"
+              className="block bg-white rounded-lg border border-gray-200 p-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex items-center gap-2 mb-2">
                 <span
@@ -120,7 +120,7 @@ export default function HomePage() {
               <Link
                 key={id}
                 to={`/slides/${id}`}
-                className="block bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow"
+                className="block bg-white rounded-lg border border-gray-200 p-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span
@@ -144,14 +144,14 @@ export default function HomePage() {
         <div className="grid gap-4 sm:grid-cols-2">
           <Link
             to="/quiz/pre"
-            className="block bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-shadow"
+            className="block bg-white rounded-lg border border-gray-200 p-5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
           >
             <h3 className="font-semibold text-[#1B2A4A] mb-1">前測</h3>
             <p className="text-sm text-gray-500">課前知識評估</p>
           </Link>
           <Link
             to="/quiz/post"
-            className="block bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-shadow"
+            className="block bg-white rounded-lg border border-gray-200 p-5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
           >
             <h3 className="font-semibold text-[#1B2A4A] mb-1">後測</h3>
             <p className="text-sm text-gray-500">課後學習成效評估</p>
@@ -167,7 +167,7 @@ export default function HomePage() {
         </h2>
         <Link
           to="/messages"
-          className="block bg-gradient-to-br from-[#D5F5E3] to-[#E8F8F5] rounded-xl p-5 border border-[#1E8449]/20 hover:shadow-md transition-shadow"
+          className="block bg-gradient-to-br from-[#D5F5E3] to-[#E8F8F5] rounded-xl p-5 border border-[#1E8449]/20 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
         >
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">

@@ -95,7 +95,7 @@ function ModulePill({ id }: { id: string }) {
   return (
     <Link
       to={`/content/${id}`}
-      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium hover:opacity-80 transition-opacity"
+      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium hover:-translate-y-0.5 hover:shadow-sm hover:opacity-90 transition-all duration-300"
       style={{ backgroundColor: m.colorLight, color: m.color }}
     >
       {m.id} {m.title}
@@ -211,22 +211,18 @@ export default function RoadmapPage() {
               <div className="mt-3 pt-3 border-t border-gray-200/50">
                 <p className="text-xs font-medium text-gray-500 mb-2">前測演練會議記錄</p>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <a
-                    href="https://github.com/sniperHK/NTUH_OutpatientxCIT_AG/blob/master/docs/meetings/20260407_pretest1_%E5%85%A7%E7%A7%91.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/meetings/pretest1"
                     className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
                   >
                     📝 4/7 內科 13 診
-                  </a>
-                  <a
-                    href="https://github.com/sniperHK/NTUH_OutpatientxCIT_AG/blob/master/docs/meetings/20260409_pretest2_%E7%B2%BE%E7%A5%9E%E9%83%A8.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  </Link>
+                  <Link
+                    to="/meetings/pretest2"
                     className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
                   >
                     📝 4/9 精神部
-                  </a>
+                  </Link>
                   <Link
                     to="/content/M07"
                     className="inline-flex items-center gap-1 px-2 py-1 rounded bg-[#34495E] text-white hover:opacity-90"

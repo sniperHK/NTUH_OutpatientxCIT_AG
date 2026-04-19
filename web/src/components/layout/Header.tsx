@@ -7,7 +7,7 @@ interface HeaderProps {
 
 export default function Header({ onToggleSidebar }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-30 flex items-center gap-3 px-4 py-3 bg-[#F8F9FA] border-b border-gray-200">
+    <header className="sticky top-0 z-30 flex items-center gap-3 px-4 py-3 bg-white/80 backdrop-blur-md border-b border-gray-200/60 shadow-sm transition-all duration-300">
       <button
         onClick={onToggleSidebar}
         className="lg:hidden p-2 rounded-md hover:bg-gray-200 transition-colors"
