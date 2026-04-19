@@ -43,7 +43,7 @@ else
 fi
 
 echo "Building on NAS..."
-ssh "$NAS_HOST" "export PATH=/usr/local/bin:\$PATH && cd $REMOTE_DIR && docker compose -f deploy/docker-compose.yml build && docker compose -f deploy/docker-compose.yml up -d"
+ssh "$NAS_HOST" "export PATH=/usr/local/bin:\$PATH && cd $REMOTE_DIR && docker compose -f deploy/docker-compose.yml build && docker compose -f deploy/docker-compose.yml up -d --force-recreate"
 
 sleep 5
 STATUS=$(ssh "$NAS_HOST" "curl -sf -o /dev/null -w '%{http_code}' http://localhost:8904/" || echo "000")

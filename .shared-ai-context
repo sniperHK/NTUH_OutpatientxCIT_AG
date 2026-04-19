@@ -1,6 +1,6 @@
 # 門診暴力應對專案 - 上下文共享
 
-> 最後更新：2026-04-20 by Claude Code
+> 最後更新：2026-04-20 by Claude Code（修復 M07 簡報 build pipeline）
 
 ## 基本規範
 
@@ -94,6 +94,7 @@
 
 ## 變更日誌
 
+- [2026-04-20] Claude Code: M07 簡報部署收官 — 接續 commit 9e4ff89（build:slides:m07 + Dockerfile 改用 npm run build:slides）執行 NAS no-cache 重 build 並 force-recreate container；除錯時發現 deploy.sh `up -d` 沒 `--force-recreate`，當 image tag 不變但內容變時 compose 不會換 container（這是 9e4ff89 沒 deploy 成功的隱性原因），順手把 deploy.sh 補上 `--force-recreate`。線上五份簡報（S-M01/03/04/05/07）已驗證 HTTP 200 並回傳正確 Slidev `<title>`（含 `門診現場應變實務`）
 - [2026-04-20] Claude Code: Sidebar 標題整齊化 + 情境模擬「上一步/重新挑選」按鈕 — (1) siteMeta.ts / S05.ts / S06.ts 移除「幻聽命令（LOR）」「失智奶奶持刀（LOR + LOC）」括號英文（modality 徽章已顯示）；(2) ScenarioPlayer.tsx 新增 handlePrevious：當前階段已選決策時顯示「← 重新挑選」清除選擇讓使用者改選；未選且 path.length > 1 時顯示「← 上一步」回退階段並還原已選
 - [2026-04-20] Claude Code: 全站優化收官 — 全域盤點後執行 8 項優化：(1) M03/M05/M06 cross-ref 到新框架 + 全 7 模組延伸學習擴充；(2) Quiz 補平衡 Q48-Q55（M07 2→5、M05 5→7、M03/M06 6→7，總 55 題）；(3) M02 重新編號（去「一-補/六-補」）；(4) M04 第 6 節「言語約束」→「言語降階」；(5) HomePage 新增「核心框架速查」四張卡片；(6) 情境 S01-S04 加 modality 標籤、新增 S05（幻聽命令 LOR）與 S06（失智奶奶 LOR+LOC）+ ScenarioPage 顯示樣態徽章；(7) S-M03 補 2 張（暗語=伐謀、四大樣態），S-M07 新增 9 張（降階兵法、持械五不、48 條、鐵警案、TAKE HOME）；(8) Glossary 頁 `/glossary` 六主題 25+ 詞條 + Sidebar 連結。types.ts 加 CrisisModality 與 Scenario.modalities/modalityNote。TypeScript 編譯 0 錯誤
 - [2026-04-19] Claude Code: 學員手冊聯絡資訊重整 — 報警 110、中正第一分局 02-2371-6426、衛福部 1925/1995/1980 心理專線、KM 平台 SOP/EAP 連結、林雯霞護理長分機 266883；院內機密分機（駐警/EAP）保留 placeholder
