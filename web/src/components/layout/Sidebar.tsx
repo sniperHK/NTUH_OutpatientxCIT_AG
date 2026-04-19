@@ -1,4 +1,4 @@
-import { X } from 'lucide-react'
+import { X, Home } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import { modules, tools, scenarioMetas, slideOrder, slideMeta } from '@/data/siteMeta'
 
@@ -147,6 +147,24 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
               </li>
             </ul>
           </section>
+
+          <div className="pt-4 mt-4 border-t border-gray-100">
+            <NavLink 
+              to="/" 
+              end
+              className={({ isActive }) => 
+                `flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                  isActive 
+                    ? 'bg-[#1B2A4A] text-white font-medium' 
+                    : 'text-[#2980B9] font-medium hover:bg-blue-50'
+                }`
+              }
+              onClick={onClose}
+            >
+              <Home className="w-4 h-4" />
+              回到首頁
+            </NavLink>
+          </div>
         </nav>
       </aside>
     </>
