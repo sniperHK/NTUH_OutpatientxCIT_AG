@@ -94,6 +94,7 @@
 
 ## 變更日誌
 
+- [2026-04-20] Claude Code: Sidebar 標題整齊化 + 情境模擬「上一步」按鈕 — (1) siteMeta.ts / S05.ts / S06.ts 移除「幻聽命令（LOR）」「失智奶奶持刀（LOR + LOC）」括號英文（modality 徽章已顯示）；(2) ScenarioPlayer.tsx 新增 handlePrevious：在「推進情境」旁加上「← 上一步」按鈕，可回退至上一階段且還原已選決策（path.length > 1 時顯示）
 - [2026-04-20] Claude Code: 全站優化收官 — 全域盤點後執行 8 項優化：(1) M03/M05/M06 cross-ref 到新框架 + 全 7 模組延伸學習擴充；(2) Quiz 補平衡 Q48-Q55（M07 2→5、M05 5→7、M03/M06 6→7，總 55 題）；(3) M02 重新編號（去「一-補/六-補」）；(4) M04 第 6 節「言語約束」→「言語降階」；(5) HomePage 新增「核心框架速查」四張卡片；(6) 情境 S01-S04 加 modality 標籤、新增 S05（幻聽命令 LOR）與 S06（失智奶奶 LOR+LOC）+ ScenarioPage 顯示樣態徽章；(7) S-M03 補 2 張（暗語=伐謀、四大樣態），S-M07 新增 9 張（降階兵法、持械五不、48 條、鐵警案、TAKE HOME）；(8) Glossary 頁 `/glossary` 六主題 25+ 詞條 + Sidebar 連結。types.ts 加 CrisisModality 與 Scenario.modalities/modalityNote。TypeScript 編譯 0 錯誤
 - [2026-04-19] Claude Code: 學員手冊聯絡資訊重整 — 報警 110、中正第一分局 02-2371-6426、衛福部 1925/1995/1980 心理專線、KM 平台 SOP/EAP 連結、林雯霞護理長分機 266883；院內機密分機（駐警/EAP）保留 placeholder
 - [2026-04-19] Claude Code: 清理 git history — 用 `git filter-repo --path 北市EMTP_CIT相關文件/ --invert-paths` 移除誤 commit 的 31GB 教材庫，.git/objects 從 35GB → 3MB；副作用是工作目錄檔案被 reset --hard 刪掉，已從 OneDrive `/088_EMS緊急救護/014_CIT/` 用 cp -R 完整復原（155 檔案 / 38GB），.gitignore 已永久排除避免再次 commit

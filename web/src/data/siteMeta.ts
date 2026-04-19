@@ -128,14 +128,14 @@ export const scenarioMetas = [
   },
   {
     id: 'S05',
-    title: '幻聽命令（LOR）',
+    title: '幻聽命令',
     subtitle: '病人受命令性幻聽驅使，疑似要傷害他人',
     color: '#7D3C98',
     colorLight: '#E8DAEF',
   },
   {
     id: 'S06',
-    title: '失智奶奶持刀（LOR + LOC）',
+    title: '失智奶奶持刀',
     subtitle: '80 歲失智病人懷疑先生外遇，拿刀威脅',
     color: '#6C3483',
     colorLight: '#D6DBDF',

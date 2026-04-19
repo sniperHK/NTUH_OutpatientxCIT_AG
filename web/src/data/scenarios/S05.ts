@@ -2,7 +2,7 @@ import type { Scenario } from '../types'
 
 const S05: Scenario = {
   id: 'S05',
-  title: '幻聽命令（LOR）',
+  title: '幻聽命令',
   subtitle: '病人受命令性幻聽驅使，疑似要傷害他人',
   setting: '精神科門診候診區，上午 11:00，約 20 名候診病人。病人是已知列管個案，今日未準時來診。',
   patient:

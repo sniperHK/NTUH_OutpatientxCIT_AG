@@ -184,6 +184,22 @@ export default function ScenarioPlayer({ scenario }: ScenarioPlayerProps) {
     setSelectedDecisionId(null)
   }
 
+  function handlePrevious() {
+    if (path.length <= 1) return
+
+    const previousPath = path.slice(0, -1)
+    const previousStageId = previousPath[previousPath.length - 1] as string
+    const previousDecisionId = history[previousStageId] ?? null
+
+    const newHistory = { ...history }
+    delete newHistory[stage.id]
+
+    setPath(previousPath)
+    setCurrentStageId(previousStageId)
+    setSelectedDecisionId(previousDecisionId)
+    setHistory(newHistory)
+  }
+
   function handleRestart() {
     setCurrentStageId(initialStageId)
     setSelectedDecisionId(null)
@@ -640,21 +656,32 @@ export default function ScenarioPlayer({ scenario }: ScenarioPlayerProps) {
         </div>
       )}
 
-      {(selectedDecision !== null || !hasDecisions) && (
-        <div className="text-center pt-2">
-          <button
-            onClick={handleNext}
-            className="px-6 py-2.5 rounded-lg text-white font-medium transition-colors"
-            style={{ backgroundColor: color }}
-          >
-            {branchingMode
-              ? selectedDecision?.outcomeId
-                ? '查看結果'
-                : '推進情境'
-              : isLastStage
-                ? '查看總結與 Debrief'
-                : '下一階段'}
-          </button>
+      {(selectedDecision !== null || !hasDecisions || path.length > 1) && (
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          {path.length > 1 && (
+            <button
+              onClick={handlePrevious}
+              className="px-6 py-2.5 rounded-lg border-2 bg-white font-medium transition-colors hover:bg-gray-50"
+              style={{ borderColor: color, color }}
+            >
+              ← 上一步
+            </button>
+          )}
+          {(selectedDecision !== null || !hasDecisions) && (
+            <button
+              onClick={handleNext}
+              className="px-6 py-2.5 rounded-lg text-white font-medium transition-colors"
+              style={{ backgroundColor: color }}
+            >
+              {branchingMode
+                ? selectedDecision?.outcomeId
+                  ? '查看結果'
+                  : '推進情境'
+                : isLastStage
+                  ? '查看總結與 Debrief'
+                  : '下一階段'}
+            </button>
+          )}
         </div>
       )}
     </div>

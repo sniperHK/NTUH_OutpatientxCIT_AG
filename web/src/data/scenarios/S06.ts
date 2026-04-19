@@ -2,7 +2,7 @@ import type { Scenario } from '../types'
 
 const S06: Scenario = {
   id: 'S06',
-  title: '失智奶奶持刀（LOR + LOC）',
+  title: '失智奶奶持刀',
   subtitle: '80 歲失智病人懷疑先生外遇，拿刀威脅',
   setting: '神經內科門診診間內，下午時段。老奶奶由 60 歲兒子陪同複診失智症。',
   patient:
