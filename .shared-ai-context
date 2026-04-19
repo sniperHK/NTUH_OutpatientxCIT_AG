@@ -84,6 +84,8 @@
 
 ## 變更日誌
 
+- [2026-04-19] Claude Code: 學員手冊聯絡資訊重整 — 報警 110、中正第一分局 02-2371-6426、衛福部 1925/1995/1980 心理專線、KM 平台 SOP/EAP 連結、林雯霞護理長分機 266883；院內機密分機（駐警/EAP）保留 placeholder
+- [2026-04-19] Claude Code: 清理 git history — 用 `git filter-repo --path 北市EMTP_CIT相關文件/ --invert-paths` 移除誤 commit 的 31GB 教材庫，.git/objects 從 35GB → 3MB；副作用是工作目錄檔案被 reset --hard 刪掉，已從 OneDrive `/088_EMS緊急救護/014_CIT/` 用 cp -R 完整復原（155 檔案 / 38GB），.gitignore 已永久排除避免再次 commit
 - [2026-04-19] Claude Code: S02/S03/S04 升級為樹狀分支（對齊 S01 模式）— 每情境 5-7 stages + 4 outcomes (safe/support/incident/adverse)，decisions 帶 nextStageId/outcomeId/impact/consequence；ScenarioPlayer 分支引擎全面啟用
 - [2026-04-19] Claude Code: 前測會議記錄頁面化 — Roadmap GitHub 外連 → 站內 `/meetings/pretest1|2`；MeetingPage 多 session × 多 clip；docker-compose 加 `/app/public/videos` bind-mount；deploy.sh 以 tar-pipe 同步影片（rsync 被 Synology shell wrapper 擋）
 - [2026-04-19] Claude Code: 前測情境模擬影片 14 clips 上架 — 原 HEVC MOV/MP4 約 2.7GB 以 ffmpeg 轉 720p H.264（CRF 26）共 218MB，掛 NAS `/volume1/docker/cit-workshop/videos/`；公開於 `https://cit.henry780930.com/videos/pretest{1|2}/session-{a|b}/clip-NN.mp4`
