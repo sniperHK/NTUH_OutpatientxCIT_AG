@@ -84,6 +84,9 @@
 
 ## 變更日誌
 
+- [2026-04-19] Claude Code: S02/S03/S04 升級為樹狀分支（對齊 S01 模式）— 每情境 5-7 stages + 4 outcomes (safe/support/incident/adverse)，decisions 帶 nextStageId/outcomeId/impact/consequence；ScenarioPlayer 分支引擎全面啟用
+- [2026-04-19] Claude Code: 前測會議記錄頁面化 — Roadmap GitHub 外連 → 站內 `/meetings/pretest1|2`；MeetingPage 多 session × 多 clip；docker-compose 加 `/app/public/videos` bind-mount；deploy.sh 以 tar-pipe 同步影片（rsync 被 Synology shell wrapper 擋）
+- [2026-04-19] Claude Code: 前測情境模擬影片 14 clips 上架 — 原 HEVC MOV/MP4 約 2.7GB 以 ffmpeg 轉 720p H.264（CRF 26）共 218MB，掛 NAS `/volume1/docker/cit-workshop/videos/`；公開於 `https://cit.henry780930.com/videos/pretest{1|2}/session-{a|b}/clip-NN.mp4`
 - [2026-04-19] Claude Code: 整合林皓陽醫師 MJAC CIT 2025「行為急症與精神異常應處實務」150 頁教材重點 — M01 加入「行為急症≠精神疾病」+ 三則案例（血糖、思覺失調、前額葉中風）+ 杏仁核/情緒腦神經科學；M02 加入精神危機四大樣態 LOR/LOC/LOH/LOP + 簡易風險評估表 14 項；M04 加入言語降階五步驟（戰術三寶/21 英呎法則/同理三句公式/轉移焦點五招/降階失敗≠任務失敗）；M07 加入降階兵法（伐謀/伐交/伐兵/攻城）+ 精神衛生法 48 條法律附錄 + 嘉義鐵路警案；HandoutPage 加入衛福部 24h 專線 (049) 255-1010；Quiz 新增 Q38–Q47 共 10 題
 - [2026-04-19] Claude Code: 4/20 時程改版 — 08:00-11:45（原 08:00-12:00），加入課堂內前測（08:15-08:30）與後測（11:30-11:45），林皓陽醫師 2 小時（08:30-09:30 + 09:45-10:45），劉醫師 10:45-11:30 帶分組情境（前測影片 + SP 模擬）
 - [2026-04-19] Claude Code: 修正暗語用字 阿良 → 阿兩（典故：烏龍派出所兩津勘吉），全站 10 檔同步（M02/M03/M07 docs + web/public、HandoutPage.tsx、0205 逐字稿、前測會議記錄）
