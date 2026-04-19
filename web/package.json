@@ -10,7 +10,8 @@
     "build:slides:m03": "slidev build slides/S-M03.md --base /slides/S-M03/ --out ../public/slides/S-M03",
     "build:slides:m04": "slidev build slides/S-M04.md --base /slides/S-M04/ --out ../public/slides/S-M04",
     "build:slides:m05": "slidev build slides/S-M05.md --base /slides/S-M05/ --out ../public/slides/S-M05",
-    "build:slides": "npm run build:slides:m01 && npm run build:slides:m03 && npm run build:slides:m04 && npm run build:slides:m05",
+    "build:slides:m07": "slidev build slides/S-M07.md --base /slides/S-M07/ --out ../public/slides/S-M07",
+    "build:slides": "npm run build:slides:m01 && npm run build:slides:m03 && npm run build:slides:m04 && npm run build:slides:m05 && npm run build:slides:m07",
     "build:all": "npm run build:slides && npm run build",
     "preview": "vite preview",
     "lint": "eslint ."
