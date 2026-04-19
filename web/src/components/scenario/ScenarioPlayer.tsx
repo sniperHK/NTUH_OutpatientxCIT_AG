@@ -185,19 +185,23 @@ export default function ScenarioPlayer({ scenario }: ScenarioPlayerProps) {
   }
 
   function handlePrevious() {
+    if (selectedDecisionId) {
+      const newHistory = { ...history }
+      delete newHistory[stage.id]
+      setSelectedDecisionId(null)
+      setHistory(newHistory)
+      return
+    }
+
     if (path.length <= 1) return
 
     const previousPath = path.slice(0, -1)
     const previousStageId = previousPath[previousPath.length - 1] as string
     const previousDecisionId = history[previousStageId] ?? null
 
-    const newHistory = { ...history }
-    delete newHistory[stage.id]
-
     setPath(previousPath)
     setCurrentStageId(previousStageId)
     setSelectedDecisionId(previousDecisionId)
-    setHistory(newHistory)
   }
 
   function handleRestart() {
@@ -658,13 +662,14 @@ export default function ScenarioPlayer({ scenario }: ScenarioPlayerProps) {
 
       {(selectedDecision !== null || !hasDecisions || path.length > 1) && (
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-          {path.length > 1 && (
+          {(selectedDecisionId !== null || path.length > 1) && (
             <button
               onClick={handlePrevious}
               className="px-6 py-2.5 rounded-lg border-2 bg-white font-medium transition-colors hover:bg-gray-50"
               style={{ borderColor: color, color }}
+              title={selectedDecisionId ? '清除目前選擇，重新挑選' : '回到上一階段'}
             >
-              ← 上一步
+              {selectedDecisionId ? '← 重新挑選' : '← 上一步'}
             </button>
           )}
           {(selectedDecision !== null || !hasDecisions) && (
