@@ -22,17 +22,31 @@ jobs:
           curl -fsSL https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o /tmp/cloudflared.deb
           sudo dpkg -i /tmp/cloudflared.deb
 
+      - name: Validate NAS SSH key secret
+        env:
+          NAS_SSH_KEY: ${{ secrets.NAS_SSH_KEY }}
+        run: |
+          if [ -z "$NAS_SSH_KEY" ]; then
+            echo "::error::Missing GitHub Actions repository secret NAS_SSH_KEY."
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$NAS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          if ! ssh-keygen -y -P '' -f ~/.ssh/deploy_key >/dev/null 2>&1; then
+            echo "::error::NAS_SSH_KEY must be a valid unencrypted SSH private key."
+            exit 1
+          fi
+
       - name: Setup SSH via Cloudflare Tunnel
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.NAS_SSH_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
           cat >> ~/.ssh/config << 'EOF'
           Host nas
             HostName ssh.henry780930.com
             User sniperHK
             IdentityFile ~/.ssh/deploy_key
             StrictHostKeyChecking no
+            BatchMode yes
             ProxyCommand cloudflared access ssh --hostname %h
             ControlMaster auto
             ControlPath /tmp/ssh-nas-%r
@@ -40,7 +54,7 @@ jobs:
           EOF
 
       - name: Test SSH connection
-        run: ssh -o ConnectTimeout=30 nas "echo 'SSH via Cloudflare Tunnel OK'"
+        run: ssh -o BatchMode=yes -o ConnectTimeout=30 nas "echo 'SSH via Cloudflare Tunnel OK'"
 
       - name: Ensure remote directory
         run: ssh nas "mkdir -p /volume1/docker/cit-workshop"
