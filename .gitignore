@@ -27,3 +27,6 @@ web/public/slides/
 # TypeScript build info
 web/tsconfig.tsbuildinfo
 server/node_modules/
+
+# 北市 EMTP CIT 教材庫 — 31GB 參考資料庫，本地保留但不 commit
+北市EMTP_CIT相關文件/
