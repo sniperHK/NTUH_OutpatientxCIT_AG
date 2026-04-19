@@ -61,6 +61,10 @@ export default function DecisionTreeViewer({ tree }: Props) {
     setPath([tree.rootNode.id])
   }, [tree.rootNode.id])
 
+  const handleBack = useCallback(() => {
+    setPath((prev) => (prev.length > 1 ? prev.slice(0, -1) : prev))
+  }, [])
+
   const handleSelectChild = useCallback(
     (childId: string) => {
       setPath((prev) => [...prev, childId])
@@ -223,13 +227,24 @@ export default function DecisionTreeViewer({ tree }: Props) {
 
           {/* Bottom controls */}
           <div className="flex items-center justify-between pt-2">
-            <button
-              type="button"
-              onClick={handleReset}
-              className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
-            >
-              重新開始
-            </button>
+            <div className="flex items-center gap-2">
+              {path.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handleBack}
+                  className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+                >
+                  回上一步
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={handleReset}
+                className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+              >
+                重新開始
+              </button>
+            </div>
             <button
               type="button"
               onClick={() => setTab('panorama')}
