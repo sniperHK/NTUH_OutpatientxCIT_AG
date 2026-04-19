@@ -582,4 +582,157 @@ export const questions: Question[] = [
     explanation:
       '緊急求救鈴的使用時機是「當你感受到人身安全受到威脅、需要立即支援時」。不需要等到被攻擊才按，也不需要主管同意。這是保護醫護人員安全的預防性措施，寧可多按一次也不要錯過求救時機。',
   },
+  // === 新增：行為急症、降階五步驟、法律 (Q38-Q47) ===
+  {
+    id: 'Q38',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M01',
+    stem: '50 歲男子眼神失焦、關不上寶特瓶蓋、語無倫次、無特別病史。以下何者是現場最適當的處置方向？',
+    options: [
+      { id: 'A', text: '立即呼叫精神科會診，強制約束', isCorrect: false },
+      { id: 'B', text: '先排除身體原因（血糖、中風、電解質等），行為急症不等於精神疾病', isCorrect: true },
+      { id: 'C', text: '通知家屬接回家觀察', isCorrect: false },
+      { id: 'D', text: '請他自己去精神科掛號', isCorrect: false },
+    ],
+    explanation:
+      '這是林皓陽醫師教材中的真實案例 — 最後血糖檢查為 >1,500 mg/dL。核心原則：行為急症 ≠ 精神疾病。低血糖、頭部外傷、電解質不平衡都可能造成急性精神症狀。現場不需要精確診斷，但必須先排除可逆的身體原因。',
+  },
+  {
+    id: 'Q39',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M02',
+    stem: '精神危機有四大樣態 LOR/LOC/LOH/LOP。病人呈現「幻聽、自言自語、多疑、懼怕」，最主要的樣態是？',
+    options: [
+      { id: 'A', text: 'LOR — Loss of Reality 失去現實感', isCorrect: true },
+      { id: 'B', text: 'LOC — Loss of Control 失去控制感', isCorrect: false },
+      { id: 'C', text: 'LOH — Loss of Hope 失去希望', isCorrect: false },
+      { id: 'D', text: 'LOP — Loss of Perspective 失去穩定想法', isCorrect: false },
+    ],
+    explanation:
+      '幻聽、自言自語、多疑是典型的 LOR（失去現實感）表現。LOC 是易怒／衝動／踱步；LOH 是退縮／自殺意念；LOP 是執著／偏執／反覆同一主題。四大樣態不一定獨自出現，但分類有助於選擇降階策略 — 對 LOR 病人要避免突然動作、不否定幻覺內容、先處理情緒。',
+  },
+  {
+    id: 'Q40',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M01',
+    stem: '為什麼在病人情緒最高點時跟他講道理往往無效？',
+    options: [
+      { id: 'A', text: '病人故意不聽', isCorrect: false },
+      { id: 'B', text: '情緒爆發時杏仁核活化、前額葉（理性腦）被綁架，無法進行邏輯思考', isCorrect: true },
+      { id: 'C', text: '只有我們講得不夠大聲', isCorrect: false },
+      { id: 'D', text: '必須先威脅才會聽', isCorrect: false },
+    ],
+    explanation:
+      '這是降階溝通的神經科學基礎。杏仁核（情緒腦）活化時會「綁架」前額葉皮質（理性腦），人進入 Fight/Flight/Freeze 本能反應，6 秒內理智線斷。所以要「先降階、再講理」— 情緒在安全區才有辦法高階思考。病人是這樣，你自己也是這樣。',
+  },
+  {
+    id: 'Q41',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M04',
+    stem: '林皓陽醫師言語降階五步驟中，「第二步：目標確認」的核心是什麼？',
+    options: [
+      { id: 'A', text: '跟病人講道理，講到他認輸', isCorrect: false },
+      { id: 'B', text: '讓病人放輕鬆、降低對峙感（不是要「贏」）', isCorrect: true },
+      { id: 'C', text: '讓病人道歉', isCorrect: false },
+      { id: 'D', text: '立刻叫駐警', isCorrect: false },
+    ],
+    explanation:
+      '降階不是辯論、不需要贏。面對激動的病人，目標是「讓他放輕鬆、降低對峙感」，不是講贏他。一旦進入辯論模式，雙方都被杏仁核綁架，衝突只會升級。先降對峙感，後面第三招「同理回應」才有機會發揮。',
+  },
+  {
+    id: 'Q42',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M04',
+    stem: '同理回應的三句公式依序是？',
+    options: [
+      { id: 'A', text: '事實 → 情緒 → 需求（我注意到__／你是不是覺得__／想要__）', isCorrect: true },
+      { id: 'B', text: '指責 → 命令 → 威脅', isCorrect: false },
+      { id: 'C', text: '解釋 → 道歉 → 補償', isCorrect: false },
+      { id: 'D', text: '診斷 → 用藥 → 通報', isCorrect: false },
+    ],
+    explanation:
+      '「我注意到您等了快兩小時（事實）／您是不是覺得很焦慮（情緒）／想要先了解爸爸狀況（需求）？」— 這是把病人從情緒腦拉回皮質的結構化話術。先認同情緒再說，但同理不等於同意 — 你認同的是感受，不是行為。',
+  },
+  {
+    id: 'Q43',
+    type: 'single-choice',
+    category: 'both',
+    module: 'M04',
+    stem: '降階第五步「轉移焦點」的五種方向，以下哪一組正確？',
+    options: [
+      { id: 'A', text: '從站著到坐著、從情緒到事件、從執著到選擇、從精神到身體、從情緒到任務', isCorrect: true },
+      { id: 'B', text: '從門口到角落、從輕聲到大聲、從被動到主動', isCorrect: false },
+      { id: 'C', text: '從安撫到威脅、從建議到命令、從退讓到堅持', isCorrect: false },
+      { id: 'D', text: '從護理師到醫師、從醫師到駐警、從駐警到警察', isCorrect: false },
+    ],
+    explanation:
+      '五種轉移焦點口訣：身、坐、事、選、任。「要不要坐著說？」「告訴我發生什麼事」「你要吃藥還是打針？」「現在一定很累吧？」「我需要您幫我確認一下資料」 — 用身體／姿勢／事件／選擇／任務把病人的注意力從「情緒」拉走。',
+  },
+  {
+    id: 'Q44',
+    type: 'scenario',
+    category: 'both',
+    module: 'M04',
+    stem: '21 英呎法則（Tueller Drill）的意義是？',
+    scenarioContext: '言語降階第三步戰術三寶中的「距離」原則',
+    options: [
+      { id: 'A', text: '病人身高要量到 21 英呎', isCorrect: false },
+      { id: 'B', text: '一個人在 1.5 秒內可跨越約 21 英呎（6.4 公尺），意思是只要對方在 6 公尺內就沒有絕對安全距離', isCorrect: true },
+      { id: 'C', text: '駐警到場需要 21 秒', isCorrect: false },
+      { id: 'D', text: '診間要有 21 英呎寬', isCorrect: false },
+    ],
+    explanation:
+      '21 英呎法則是警察界經典研究：一個攻擊者在 1.5 秒內可跨越約 21 英呎（6.4 公尺），這比多數人拔槍反應的時間還短。門診啟示：盡量讓病人「坐著」，爭取反應時間；隨時面朝病人、不要在正前方、可 90° 斜角；利用診療桌／椅背作為掩體。',
+  },
+  {
+    id: 'Q45',
+    type: 'scenario',
+    category: 'both',
+    module: 'M07',
+    stem: '家屬抱怨「爸爸不吃藥也不看醫生」並疑似有傷害他人之虞。但你擔心強制送醫會被告「妨害自由」。正確觀念是？',
+    scenarioContext: '精神衛生法第 48 條適用情境',
+    options: [
+      { id: 'A', text: '沒有醫師確診就不能通報送醫', isCorrect: false },
+      { id: 'B', text: '只要依客觀事實合理懷疑需送醫，法律保護通報者，「送醫通常都不會錯」', isCorrect: true },
+      { id: 'C', text: '必須等到實際發生傷害才能介入', isCorrect: false },
+      { id: 'D', text: '先請家屬簽切結書才能送醫', isCorrect: false },
+    ],
+    explanation:
+      '依據精神衛生法第 48 條與臺灣高雄地院等判決，「只要依客觀上所發生事實，有使他人可認為患者可疑為罹有精神疾病而有送醫檢查之必要，即難認通報送醫者有何違法之故意」。2019 年嘉義鐵路警察李承翰事件就是錯失通報時機的悲劇。遇到模糊情境可先撥打衛福部 24h 諮詢專線 (049) 255-1010。',
+  },
+  {
+    id: 'Q46',
+    type: 'single-choice',
+    category: 'post',
+    module: 'M07',
+    stem: '「上兵伐謀，其次伐交，其次伐兵，其下攻城」在降階實務的對應，以下何者錯誤？',
+    options: [
+      { id: 'A', text: '伐謀 = 預防性介入（流程透明、列管個案識別）', isCorrect: false },
+      { id: 'B', text: '伐交 = 言語降階（停聽同選、五步驟）', isCorrect: false },
+      { id: 'C', text: '伐兵 = 徒手單人制伏最有效率', isCorrect: true },
+      { id: 'D', text: '攻城 = 強制約束／送醫，成本最高需做足準備', isCorrect: false },
+    ],
+    explanation:
+      '伐兵是指「動用強制力需盤點團隊、裝備」 — 安全壓制其實需要 5 個人，不是靠徒手單人。越上層手段成本越低、效果越好；越下層風險越大。攻城（強制處置）一定會有損失，必須在效益評估後才執行。',
+  },
+  {
+    id: 'Q47',
+    type: 'single-choice',
+    category: 'post',
+    module: 'M02',
+    stem: '關於「簡易風險評估表 14 項」（安大略省）在門診實務的使用，以下何者正確？',
+    options: [
+      { id: 'A', text: '必須每一項都問病人才算完整', isCorrect: false },
+      { id: 'B', text: '勾超過 7 項才能通報送醫', isCorrect: false },
+      { id: 'C', text: '沒有硬性截斷點，重點是向上通報時有結構化語言與客觀紀錄', isCorrect: true },
+      { id: 'D', text: '只有精神科才能使用', isCorrect: false },
+    ],
+    explanation:
+      '14 項評估表沒有硬性截斷點，重點是「協助你向上通報時有結構化語言」— 例如：「病人符合 5 項風險指標，其中 3 項涉及自他傷」。大部分項目可由觀察與家屬資訊取得，不需要一一逐項問病人。這也是精神衛生法 48 條實務上「客觀事實」最好的紀錄工具，保護通報者。',
+  },
 ]

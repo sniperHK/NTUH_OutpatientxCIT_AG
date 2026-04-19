@@ -179,6 +179,11 @@ export default function HandoutPage() {
             <p className="text-gray-600 text-xs">台北市中正區公園路 15 號 ｜ 介壽派出所轄區</p>
             <a href="tel:0223716426" className="text-[#C0392B] font-bold">02-2371-6426</a>
           </div>
+          <div className="bg-[#FCF3CF] rounded-lg p-3 sm:col-span-2">
+            <div className="font-semibold text-[#2C3E50]">衛福部 24h 精神醫療緊急處置線上諮詢專線</div>
+            <p className="text-gray-600 text-xs">疑似精神危機、是否強制送醫的第一通諮詢電話（精神衛生法第 48 條實務）</p>
+            <a href="tel:0492551010" className="text-[#B9770E] font-bold text-lg">(049) 255-1010</a>
+          </div>
         </div>
 
         {/* 6B. 心理諮詢支持 */}
