@@ -1,9 +1,15 @@
 #!/bin/bash
-# Deploy CIT teaching website to NAS
+# Deploy CIT teaching website to NAS.
+#
+# Videos are served by the separate NAS media origin by default:
+#   ./deploy-media.sh
+# Set SYNC_VIDEOS=1 only when you intentionally want to refresh the legacy
+# same-origin video volume.
 set -euo pipefail
 
 NAS_HOST="sniperhk920"
 REMOTE_DIR="/volume1/docker/cit-workshop"
+SYNC_VIDEOS="${SYNC_VIDEOS:-0}"
 
 echo "=== CIT deploy to NAS ==="
 
@@ -33,13 +39,13 @@ echo "Sync done"
 
 # Videos: synced independently to bind-mounted volume (not baked into image).
 # Use tar|ssh|tar pipe (same pattern as above) — Synology blocks native rsync shell.
-if [ -d "web/public/videos" ] && [ "$(ls -A web/public/videos 2>/dev/null)" ]; then
+if [ "$SYNC_VIDEOS" = "1" ] && [ -d "web/public/videos" ] && [ "$(ls -A web/public/videos 2>/dev/null)" ]; then
   echo "Syncing videos to NAS (tar pipe)..."
   tar cf - -C web/public/videos . \
     | ssh "$NAS_HOST" "cd $REMOTE_DIR/videos && tar xf -"
   echo "Videos synced"
 else
-  echo "No web/public/videos/ locally — skipping video sync"
+  echo "Skipping video sync — media is handled by ./deploy-media.sh"
 fi
 
 echo "Building on NAS..."

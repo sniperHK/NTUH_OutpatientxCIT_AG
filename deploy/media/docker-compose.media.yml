@@ -1,0 +1,11 @@
+services:
+  cit-media:
+    image: nginx:1.27-alpine
+    container_name: cit-media
+    restart: unless-stopped
+    ports:
+      - "${MEDIA_PORT:-8914}:80"
+    volumes:
+      - "${MEDIA_ROOT:-/volume1/docker/cit-media/videos}:/usr/share/nginx/html:ro"
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    mem_limit: 64m

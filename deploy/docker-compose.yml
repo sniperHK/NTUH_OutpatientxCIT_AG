@@ -3,6 +3,8 @@ services:
     build:
       context: ..
       dockerfile: deploy/Dockerfile
+      args:
+        VITE_MEDIA_BASE_URL: ${VITE_MEDIA_BASE_URL:-https://media.henry780930.com}
     ports:
       - "8904:3000"
     volumes:

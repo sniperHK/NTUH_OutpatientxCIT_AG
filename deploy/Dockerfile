@@ -1,6 +1,8 @@
 # Stage 1: Build React + Slidev
 FROM node:22-alpine AS build
 WORKDIR /app
+ARG VITE_MEDIA_BASE_URL=""
+ENV VITE_MEDIA_BASE_URL=$VITE_MEDIA_BASE_URL
 
 # Copy package files first for layer caching
 COPY web/package.json web/package-lock.json ./web/

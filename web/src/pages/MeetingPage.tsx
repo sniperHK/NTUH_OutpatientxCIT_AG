@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import { ChevronLeft, ChevronRight, Video, Calendar, MapPin } from 'lucide-react'
+import { mediaUrl } from '../lib/media'
 
 type Clip = {
   url?: string
@@ -25,7 +26,7 @@ type MeetingMeta = {
 }
 
 const BASE = import.meta.env.BASE_URL
-const V = (p: string) => `${BASE}videos/${p}`
+const V = (p: string) => mediaUrl(p)
 
 const meetingMeta: Record<string, MeetingMeta> = {
   pretest1: {
