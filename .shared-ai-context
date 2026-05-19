@@ -1,6 +1,6 @@
 # 門診暴力應對專案 - 上下文共享
 
-> 最後更新：2026-04-20 by Claude Code（修復 M07 簡報 build pipeline）
+> 最後更新：2026-04-21 by Claude Code（0421 圈會收官：SOP 流程圖四版型 + 待辦整理）
 
 ## 基本規範
 
@@ -94,6 +94,7 @@
 
 ## 變更日誌
 
+- [2026-04-21] Claude Code: 0421 第三次圈會收官 — (1) 整理會議待辦至 plan 檔（[~/.claude/plans/kind-beaming-cake.md](~/.claude/plans/kind-beaming-cake.md)），涵蓋 SOP 修訂、6/4+6/11 後測拍攝、評核工具二層設計、6/30 健康台灣 80 萬計畫、跨科平行展開（家務病房 / 腫瘤醫學部）、4/22 品管中心會議（900 按鈕＋治療車緊急扣）；(2) 依會議共識（合併 1+2 / 合併 3+4 / 停聽同選歸位低風險 / 重新評估改由護長督導執行）重組 SOP 流程；(3) 從院內現成「滋擾事件處理流程.docx」附件二（110.09.17 修訂版）抽出官方流程圖風格作為參考；(4) 用 Graphviz 產出四版型於 `docs/sop/`：Style A 直向兩欄（簽呈附件）、Style A 橫向（A4 橫向流程牌）、Style B chevron 帶狀（課程速查卡）、Style C 政府公文黑白（送審用）；(5) .gitignore 加入 `影片紀錄/`（前測原始 MOV/HEIC 留本機 + NAS）
 - [2026-04-20] Claude Code: M07 簡報部署收官 — 接續 commit 9e4ff89（build:slides:m07 + Dockerfile 改用 npm run build:slides）執行 NAS no-cache 重 build 並 force-recreate container；除錯時發現 deploy.sh `up -d` 沒 `--force-recreate`，當 image tag 不變但內容變時 compose 不會換 container（這是 9e4ff89 沒 deploy 成功的隱性原因），順手把 deploy.sh 補上 `--force-recreate`。線上五份簡報（S-M01/03/04/05/07）已驗證 HTTP 200 並回傳正確 Slidev `<title>`（含 `門診現場應變實務`）
 - [2026-04-20] Claude Code: Sidebar 標題整齊化 + 情境模擬「上一步/重新挑選」按鈕 — (1) siteMeta.ts / S05.ts / S06.ts 移除「幻聽命令（LOR）」「失智奶奶持刀（LOR + LOC）」括號英文（modality 徽章已顯示）；(2) ScenarioPlayer.tsx 新增 handlePrevious：當前階段已選決策時顯示「← 重新挑選」清除選擇讓使用者改選；未選且 path.length > 1 時顯示「← 上一步」回退階段並還原已選
 - [2026-04-20] Claude Code: 全站優化收官 — 全域盤點後執行 8 項優化：(1) M03/M05/M06 cross-ref 到新框架 + 全 7 模組延伸學習擴充；(2) Quiz 補平衡 Q48-Q55（M07 2→5、M05 5→7、M03/M06 6→7，總 55 題）；(3) M02 重新編號（去「一-補/六-補」）；(4) M04 第 6 節「言語約束」→「言語降階」；(5) HomePage 新增「核心框架速查」四張卡片；(6) 情境 S01-S04 加 modality 標籤、新增 S05（幻聽命令 LOR）與 S06（失智奶奶 LOR+LOC）+ ScenarioPage 顯示樣態徽章；(7) S-M03 補 2 張（暗語=伐謀、四大樣態），S-M07 新增 9 張（降階兵法、持械五不、48 條、鐵警案、TAKE HOME）；(8) Glossary 頁 `/glossary` 六主題 25+ 詞條 + Sidebar 連結。types.ts 加 CrisisModality 與 Scenario.modalities/modalityNote。TypeScript 編譯 0 錯誤

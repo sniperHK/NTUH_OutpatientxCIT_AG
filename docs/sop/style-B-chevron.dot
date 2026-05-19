@@ -1,0 +1,87 @@
+// Style B — 三段彩色 chevron 帶狀流程
+// 警戒(綠) → 啟動(橙) → 擴大維安(紅)
+digraph SOP_B {
+  rankdir=LR;
+  graph [
+    fontname="PingFang TC",
+    fontsize=14,
+    bgcolor="white",
+    nodesep=0.5,
+    ranksep=0.7,
+    splines=polyline,
+    labelloc="t",
+    label=<<FONT POINT-SIZE="16"><B>門診暴力事件三段應變要訣</B></FONT><BR/><FONT POINT-SIZE="10">115.05.19 修訂</FONT>>,
+  ];
+  node [fontname="PingFang TC", fontsize=12, penwidth=1.5];
+  edge [fontname="PingFang TC", fontsize=11, color="#666666", arrowsize=1.0, penwidth=1.5];
+
+  // 三大段標籤 — chevron 形狀（用 cds = chevron）
+  stage1 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLPADDING="6"><TR><TD><FONT POINT-SIZE="20"><B>第一線</B></FONT></TD></TR><TR><TD>護理師單獨應變</TD></TR></TABLE>>, shape=cds, style=filled, fillcolor="#A9D18E", color="#385723", width=2.3, fontcolor="white"];
+  stage2 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLPADDING="6"><TR><TD><FONT POINT-SIZE="20"><B>叫人</B></FONT></TD></TR><TR><TD>啟動團隊支援</TD></TR></TABLE>>, shape=cds, style=filled, fillcolor="#FFC000", color="#7F6000", width=2.3];
+  stage3 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLPADDING="6"><TR><TD><FONT POINT-SIZE="20"><B>團隊處置</B></FONT></TD></TR><TR><TD>降階 / 約束</TD></TR></TABLE>>, shape=cds, style=filled, fillcolor="#ED7D31", color="#833C0C", width=2.5, fontcolor="white"];
+  stage4 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLPADDING="6"><TR><TD><FONT POINT-SIZE="20"><B>事後</B></FONT></TD></TR><TR><TD>通報 / 關懷</TD></TR></TABLE>>, shape=cds, style=filled, fillcolor="#5B9BD5", color="#1F3864", width=2.3, fontcolor="white"];
+
+  // 每段下面對應的內容方塊
+  content1 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="3" ALIGN="LEFT">
+    <TR><TD ALIGN="LEFT"><B>① 辨識</B>　30 秒「眼耳鼻舌身意」評估</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>　 安全站位</B>　側身 45-90°，距離 1-2 公尺</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>　 安撫情緒</B>　平穩語調＋同理話語</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>② CAB 評估</B>　判斷可否言語降階</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>③ 停聽同選</B>（低風險）</TD></TR>
+    <TR><TD ALIGN="LEFT">　停下手邊事 ｜ 傾聽需求</TD></TR>
+    <TR><TD ALIGN="LEFT">　同理回應 ｜ 提供選擇</TD></TR>
+  </TABLE>>, shape=box, style="filled,rounded", fillcolor="#E2EFDA", color="#385723"];
+
+  content2 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="3" ALIGN="LEFT">
+    <TR><TD ALIGN="LEFT"><B>④「叫」啟動條件</B></TD></TR>
+    <TR><TD ALIGN="LEFT">　主觀感受威脅</TD></TR>
+    <TR><TD ALIGN="LEFT">　或眼耳鼻舌身意異常持續</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>啟動方式</B>（不分 Level）</TD></TR>
+    <TR><TD ALIGN="LEFT">　• 通知同仁／主管／行政</TD></TR>
+    <TR><TD ALIGN="LEFT">　• 電腦緊急通報系統</TD></TR>
+    <TR><TD ALIGN="LEFT">　• 按下緊急壓扣</TD></TR>
+    <TR><TD ALIGN="LEFT">　• 電話 11110 駐警／保全</TD></TR>
+    <TR><TD ALIGN="LEFT">　• 必要時報警 110</TD></TR>
+  </TABLE>>, shape=box, style="filled,rounded", fillcolor="#FFF2CC", color="#7F6000"];
+
+  content3 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="3" ALIGN="LEFT">
+    <TR><TD ALIGN="LEFT"><B>⑤⑥ 場域秩序管控</B></TD></TR>
+    <TR><TD ALIGN="LEFT">　行政：疏散民眾</TD></TR>
+    <TR><TD ALIGN="LEFT">　駐警：危險區域控制</TD></TR>
+    <TR><TD ALIGN="LEFT">　醫護：盤點人員與裝備</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>⑦ 護長／督導重新評估</B></TD></TR>
+    <TR><TD ALIGN="LEFT"><B>⑧ 高張五步驟</B>（可降階）</TD></TR>
+    <TR><TD ALIGN="LEFT">　後援充足／21 英呎法則</TD></TR>
+    <TR><TD ALIGN="LEFT">　建立關係／認可感受／設界線</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>⑨ 物理或化學約束</B>（升溫）</TD></TR>
+    <TR><TD ALIGN="LEFT">　駐警協助／必要時化學約束</TD></TR>
+  </TABLE>>, shape=box, style="filled,rounded", fillcolor="#FBE5D6", color="#833C0C"];
+
+  content4 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="3" ALIGN="LEFT">
+    <TR><TD ALIGN="LEFT"><B>⑩ 完成通報與紀錄</B></TD></TR>
+    <TR><TD ALIGN="LEFT">　監視器／錄音／照片</TD></TR>
+    <TR><TD ALIGN="LEFT">　受傷協助就醫、驗傷、筆錄</TD></TR>
+    <TR><TD ALIGN="LEFT">　受理醫療暴力通知單</TD></TR>
+    <TR><TD ALIGN="LEFT">　→ 警局 + 衛生局</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>⑪ 事後關懷</B>（48 小時內）</TD></TR>
+    <TR><TD ALIGN="LEFT">　主動關懷現場同仁</TD></TR>
+    <TR><TD ALIGN="LEFT">　轉介心理支持資源</TD></TR>
+    <TR><TD ALIGN="LEFT">　召開團隊檢討會議</TD></TR>
+  </TABLE>>, shape=box, style="filled,rounded", fillcolor="#DEEBF7", color="#1F3864"];
+
+  // 排版：頂排 chevron 標籤
+  { rank=same; stage1; stage2; stage3; stage4; }
+  // 底排內容方塊
+  { rank=same; content1; content2; content3; content4; }
+
+  // 上下對應
+  stage1 -> content1 [arrowhead=none, style=dotted, color="#385723"];
+  stage2 -> content2 [arrowhead=none, style=dotted, color="#7F6000"];
+  stage3 -> content3 [arrowhead=none, style=dotted, color="#833C0C"];
+  stage4 -> content4 [arrowhead=none, style=dotted, color="#1F3864"];
+
+  // chevron 之間箭頭
+  stage1 -> stage2 [color="#666666", penwidth=2];
+  stage2 -> stage3 [color="#666666", penwidth=2];
+  stage3 -> stage4 [color="#666666", penwidth=2];
+}

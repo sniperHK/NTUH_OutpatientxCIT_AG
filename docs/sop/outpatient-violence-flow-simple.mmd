@@ -1,0 +1,53 @@
+---
+config:
+  theme: base
+  themeVariables:
+    fontSize: 18px
+    fontFamily: "PingFang TC, Noto Sans CJK TC, Microsoft JhengHei, sans-serif"
+  flowchart:
+    htmlLabels: true
+    nodeSpacing: 50
+    rankSpacing: 60
+---
+flowchart LR
+    subgraph FrontLine["🟢 第一線護理師"]
+        direction TB
+        A1["① 辨識 + 安全距離 + 安撫<br/><i>(眼耳鼻舌身意 30 秒)</i>"] --> A2{② CAB 評估}
+        A2 -->|低| A3["③ 停聽同選"]
+        A3 --> A4{穩定?}
+    end
+
+    subgraph Team["🔴 團隊（護長 / 督導 / 駐警）"]
+        direction TB
+        B1["④「叫」啟動支援"] --> B2["⑤⑥ 資源到達<br/>場域秩序管控"]
+        B2 --> B3{⑦ 重新評估}
+        B3 -->|降階| B4["⑧ 高張五步驟"]
+        B3 -->|升溫| B5["⑨ 物理 / 化學約束"]
+        B4 --> B6{穩定?}
+        B6 -->|否| B5
+    end
+
+    subgraph Closure["🔵 事後"]
+        direction TB
+        C1["⑩ 通報紀錄"] --> C2["⑪ 48 小時關懷"]
+    end
+
+    A2 -->|高| B1
+    A4 -->|升溫| B1
+    A4 -->|穩定| C1
+    B4 --> C1
+    B5 --> C1
+    B6 -->|是| C1
+
+    classDef green fill:#d4edda,stroke:#155724,color:#000
+    classDef red fill:#f8d7da,stroke:#721c24,color:#000
+    classDef blue fill:#cce5ff,stroke:#004085,color:#000
+    classDef decision fill:#fff8e6,stroke:#b8860b,color:#000
+    classDef danger fill:#dc3545,color:#fff,stroke:#000
+
+    class A1,A3 green
+    class B1 red
+    class B2,B4 blue
+    class B5 danger
+    class C1,C2 blue
+    class A2,A4,B3,B6 decision

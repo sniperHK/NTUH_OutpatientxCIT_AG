@@ -33,3 +33,6 @@ server/node_modules/
 
 # 北市 EMTP CIT 教材庫 — 31GB 參考資料庫，本地保留但不 commit
 北市EMTP_CIT相關文件/
+
+# 院內前測原始影片（MOV/HEIC）— 留本機 + NAS，不入 repo
+影片紀錄/

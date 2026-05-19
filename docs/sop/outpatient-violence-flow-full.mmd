@@ -1,0 +1,71 @@
+---
+config:
+  theme: base
+  themeVariables:
+    fontSize: 16px
+    fontFamily: "PingFang TC, Noto Sans CJK TC, Microsoft JhengHei, sans-serif"
+  flowchart:
+    htmlLabels: true
+    curve: basis
+    nodeSpacing: 60
+    rankSpacing: 60
+---
+flowchart TD
+    Start([病人 / 家屬出現異常情緒或行為]) --> Detect
+
+    Detect["<b>① 第一線辨識 + 安全距離 + 安撫</b><br/><i>（原步驟 1+2 合併）</i><br/>• 30 秒內運用「眼耳鼻舌身意」評估<br/>• 側身 45-90°，距離 1-2 公尺<br/>• 保留逃生動線<br/>• 平穩語調 + 同理話語"]
+
+    Detect --> CABEval{"<b>② CAB 風險評估</b><br/>Cognition / Affect / Behavior"}
+
+    CABEval -->|低風險<br/>可有意義對談| TT
+    CABEval -->|高風險<br/>混亂無法對談<br/>極端情緒 / 危險行為| Call
+
+    TT["<b>③ 停聽同選</b>（CAB 低風險專用）<br/><b>停</b> — 停下手邊的事<br/><b>聽</b> — 傾聽病人需求<br/><b>同</b> — 同理回應<br/><b>選</b> — 合理範圍內提供選擇"]
+
+    TT --> Check1{是否穩定？<br/>主觀是否感受到威脅？}
+    Check1 -->|穩定| Doc
+    Check1 -->|升溫 / 感受威脅| Call
+
+    Call["<b>④「叫」啟動團隊支援</b><br/><i>（原步驟 3+4 合併，不分 Level）</i><br/>• 通知同仁 / 單位主管 / 門診行政<br/>• 啟動電腦緊急通報系統<br/>• 按下緊急壓扣<br/>• 電話通知駐警 / 保全<br/>• 必要時報警 110"]
+
+    Call --> Resource["<b>⑤ 資源到達</b><br/>護長 / 督導 / 駐警隊 / 行政"]
+
+    Resource --> SiteCtrl["<b>⑥ 場域秩序管控</b><br/>• 行政：疏散民眾、降低圍觀<br/>• 駐警：危險區域控制、安全警戒<br/>• 醫護：盤點人員、確認約束裝備"]
+
+    SiteCtrl --> ReEval{"<b>⑦ 護長 / 督導</b><br/><b>重新評估降階效果</b><br/><i>（非第一線自評）</i>"}
+
+    ReEval -->|可降階| HighDeesc
+    ReEval -->|繼續升溫 /<br/>已現威脅行為| Restrain
+
+    HighDeesc["<b>⑧ 高張情境降階五步驟</b><br/>1. 確認後援、清除危險物品<br/>2. 21 英呎法則、尊重個人界線<br/>3. 建立關係 — 「我們是來幫你的」<br/>4. 認可感受與需求、達成共識<br/>5. 設下界線並提供選擇"]
+
+    HighDeesc --> Check2{是否穩定？}
+    Check2 -->|是| Doc
+    Check2 -->|否| Restrain
+
+    Restrain["<b>⑨ 拉開距離 → 約束</b><br/>• 拉大距離等候支援<br/>• 駐警隊協助物理約束<br/>• 必要時化學約束（精神科支援）"]
+
+    Restrain --> Doc
+
+    Doc["<b>⑩ 完成通報與紀錄</b><br/>• 監視器 / 錄音 / 照片<br/>• 受傷協助就醫、驗傷、筆錄<br/>• 受理醫療暴力通知單 → 警局 + 衛生局<br/>• 院內異常事件通報"]
+
+    Doc --> Aftercare["<b>⑪ 事後關懷與支持</b>（48 小時內）<br/>• 主動關懷現場同仁<br/>• 必要時轉介心理支持資源<br/>• 召開團隊檢討會議<br/>• 提升後續應變能力"]
+
+    Aftercare --> End([結束])
+
+    classDef startEnd fill:#e1f5ff,stroke:#0066cc,stroke-width:2px,color:#000
+    classDef detect fill:#fff3cd,stroke:#856404,stroke-width:1px,color:#000
+    classDef decision fill:#fff8e6,stroke:#b8860b,stroke-width:1px,color:#000
+    classDef low fill:#d4edda,stroke:#155724,stroke-width:1px,color:#000
+    classDef alertStep fill:#f8d7da,stroke:#721c24,stroke-width:2px,color:#000
+    classDef team fill:#cce5ff,stroke:#004085,stroke-width:1px,color:#000
+    classDef restrain fill:#dc3545,color:#fff,stroke:#000,stroke-width:2px
+    classDef doc fill:#d1ecf1,stroke:#0c5460,stroke-width:1px,color:#000
+
+    class Start,End startEnd
+    class Detect,SiteCtrl,Resource detect
+    class CABEval,Check1,Check2,ReEval decision
+    class TT,HighDeesc low
+    class Call alertStep
+    class Restrain restrain
+    class Doc,Aftercare doc

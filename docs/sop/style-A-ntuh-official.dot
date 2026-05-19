@@ -1,0 +1,78 @@
+// Style A v3 — 兩欄式（壓縮高度）
+// 左欄：第一線（低風險）｜右欄：團隊處置（升溫）｜底部合流
+digraph SOP_A {
+  rankdir=TB;
+  graph [
+    fontname="PingFang TC",
+    fontsize=12,
+    bgcolor="white",
+    nodesep=0.35,
+    ranksep=0.35,
+    splines=polyline,
+    labelloc="t",
+    label=<<FONT POINT-SIZE="16"><B>附件　門診暴力事件應變作業流程圖</B></FONT><BR/><FONT POINT-SIZE="10">115.05.19 修訂</FONT>>,
+  ];
+  node [fontname="PingFang TC", fontsize=10, penwidth=1.0, color="#1F3864", margin="0.10,0.05"];
+  edge [fontname="PingFang TC", fontsize=9, color="#000000", arrowsize=0.65, penwidth=1.0];
+
+  // ===== 左欄：第一線（低風險） =====
+  start [label="病人或家屬\n受到言語、肢體\n或暴力威脅", shape=ellipse, style=filled, fillcolor="#FFE699", color="#806000"];
+
+  step1 [label="① 第一線辨識 + 安全距離 + 安撫\l• 30 秒「眼耳鼻舌身意」評估\l• 側身 45-90°，距離 1-2 公尺\l• 保留逃生動線、平穩語調＋同理話語\l", shape=box, style="filled", fillcolor="#DEEBF7"];
+
+  cab [label="② CAB\n風險評估", shape=diamond, style=filled, fillcolor="#FFE699", color="#806000", height=0.9, width=1.4];
+
+  step3 [label="③ 停聽同選（低風險降階）\l停：停下手邊的事　聽：傾聽病人需求\l同：同理回應　　　選：合理範圍內給選擇\l", shape=box, style="filled", fillcolor="#DEEBF7"];
+
+  check1 [label="是否穩定？\n（主觀有無\n感受威脅）", shape=diamond, style=filled, fillcolor="#FFE699", color="#806000", height=1.1, width=1.3];
+
+  // ===== 右欄：團隊處置（升溫路徑） =====
+  step4 [label="④「叫」啟動團隊支援（不分 Level）\l• 通知同仁／單位主管／門診行政\l• 啟動電腦緊急通報系統、按下緊急壓扣\l• 電話通知駐警／保全（11110），必要時報警 110\l", shape=box, style="filled", fillcolor="#FCE4D6", color="#C00000"];
+
+  step56 [label="⑤⑥ 資源到達 + 場域秩序管控\l• 護長／督導／駐警／行政到場\l• 行政：疏散民眾、降低圍觀\l• 駐警：危險區域控制、安全警戒\l• 醫護：盤點人員、確認約束裝備\l", shape=box, style="filled", fillcolor="#DEEBF7"];
+
+  reeval [label="⑦ 護長／督導\n重新評估降階", shape=diamond, style=filled, fillcolor="#FFE699", color="#806000", height=1.1, width=1.5];
+
+  step8 [label="⑧ 高張情境降階五步驟\l1. 確認後援、清除危險物品\l2. 21 英呎法則、尊重個人界線\l3. 建立關係（「我們是來幫你的」）\l4. 認可感受與需求、達成共識\l5. 設下界線並提供選擇\l", shape=box, style="filled", fillcolor="#DEEBF7"];
+
+  check2 [label="是否穩定？", shape=diamond, style=filled, fillcolor="#FFE699", color="#806000", height=0.8, width=1.2];
+
+  step9 [label="⑨ 拉開距離 → 約束\l• 拉大距離等候支援\l• 駐警隊協助物理約束\l• 必要時化學約束（精神科支援）\l", shape=box, style="filled", fillcolor="#FCE4D6", color="#C00000"];
+
+  // ===== 底部合流 =====
+  step10 [label="⑩ 完成通報與紀錄\l• 監視器／錄音／照片\l• 受傷協助就醫、驗傷、筆錄\l• 受理醫療暴力通知單 → 警局＋衛生局\l• 院內異常事件通報\l", shape=box, style="filled", fillcolor="#DEEBF7"];
+
+  step11 [label="⑪ 事後關懷與支持（48 小時內）\l• 主動關懷現場同仁、必要時轉介心理支持\l• 召開團隊檢討會議、提升應變能力\l", shape=box, style="filled", fillcolor="#DEEBF7"];
+
+  done [label="事件結束", shape=ellipse, style=filled, fillcolor="#FFE699", color="#806000"];
+
+  // ===== 主流程連線（左欄） =====
+  start -> step1;
+  step1 -> cab;
+  cab -> step3 [label="低風險"];
+  step3 -> check1;
+  check1 -> step10 [label="穩定"];
+
+  // ===== 跨欄連線（升溫 → 右欄） =====
+  cab -> step4 [label="高風險", constraint=false];
+  check1 -> step4 [label="升溫", constraint=false, style=bold, color="#C00000"];
+
+  // ===== 主流程連線（右欄） =====
+  step4 -> step56;
+  step56 -> reeval;
+  reeval -> step8 [label="可降階"];
+  reeval -> step9 [label="升溫／已威脅", style=bold, color="#C00000"];
+  step8 -> check2;
+  check2 -> step10 [label="穩定"];
+  check2 -> step9 [label="否", style=bold, color="#C00000"];
+  step9 -> step10;
+
+  // ===== 底部合流 =====
+  step10 -> step11;
+  step11 -> done;
+
+  // ===== 排版約束：強制左右欄並排 =====
+  { rank=same; cab; step4; }
+  { rank=same; step3; step56; }
+  { rank=same; check1; reeval; }
+}

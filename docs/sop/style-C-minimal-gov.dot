@@ -1,0 +1,66 @@
+// Style C — 政府機關內部 SOP 精簡風格
+// 黑白為主、單色點綴、實線細框、無花俏顏色
+digraph SOP_C {
+  rankdir=TB;
+  graph [
+    fontname="DFKai-SB, BiauKai, Microsoft JhengHei, sans-serif",
+    fontsize=12,
+    bgcolor="white",
+    nodesep=0.35,
+    ranksep=0.45,
+    splines=polyline,
+    labelloc="t",
+    label=<<FONT POINT-SIZE="18"><B>門診暴力事件應變作業流程圖</B></FONT><BR/><FONT POINT-SIZE="10">中華民國 115 年 5 月 19 日訂定</FONT>>,
+  ];
+  node [fontname="DFKai-SB, BiauKai, Microsoft JhengHei, sans-serif", fontsize=11, penwidth=1.2, color="#000000"];
+  edge [fontname="DFKai-SB, BiauKai, Microsoft JhengHei, sans-serif", fontsize=10, color="#000000", arrowsize=0.8, penwidth=1.0];
+
+  start [label="病人或家屬\n受到言語、肢體\n或暴力威脅", shape=ellipse, style=filled, fillcolor="white"];
+
+  step1 [label="① 第一線辨識．安全距離．安撫情緒\l・三十秒內運用「眼耳鼻舌身意」評估\l・側身四十五至九十度，距離一至二公尺\l・保留逃生動線\l・平穩語調、同理話語\l", shape=box, style=filled, fillcolor="white"];
+
+  cab [label="② CAB 風險評估", shape=diamond, style=filled, fillcolor="white", height=1.0, width=1.6];
+
+  step3 [label="③ 停聽同選（低風險言語降階）\l停：停下手邊的事\l聽：傾聽病人需求\l同：同理回應\l選：合理範圍內提供選擇\l", shape=box, style=filled, fillcolor="white"];
+
+  check1 [label="是否穩定？", shape=diamond, style=filled, fillcolor="white", height=0.9, width=1.4];
+
+  step4 [label="④「叫」啟動團隊支援（不分 Level）\l・通知同仁、單位主管、門診行政\l・啟動電腦緊急通報系統\l・按下緊急壓扣\l・電話通知駐警/保全（分機 11110）\l・必要時報警 110\l", shape=box, style=filled, fillcolor="white"];
+
+  step5 [label="⑤ 資源到達：護長、督導、駐警隊、行政", shape=box, style=filled, fillcolor="white"];
+
+  step6 [label="⑥ 場域秩序管控\l・行政：疏散民眾、降低圍觀\l・駐警：危險區域控制、安全警戒\l・醫護：盤點人員、確認約束裝備\l", shape=box, style=filled, fillcolor="white"];
+
+  reeval [label="⑦ 護長／督導\n重新評估降階效果", shape=diamond, style=filled, fillcolor="white", height=1.3, width=1.7];
+
+  step8 [label="⑧ 高張情境降階五步驟\l一、確認後援、清除危險物品\l二、二十一英呎法則、尊重個人界線\l三、建立關係（「我們是來幫你的」）\l四、認可感受與需求、達成共識\l五、設下界線並提供選擇\l", shape=box, style=filled, fillcolor="white"];
+
+  check2 [label="是否穩定？", shape=diamond, style=filled, fillcolor="white", height=0.9, width=1.4];
+
+  step9 [label="⑨ 拉開距離 → 約束\l・拉大距離等候支援\l・駐警隊協助物理約束\l・必要時化學約束（精神科支援）\l", shape=box, style="filled,bold", fillcolor="white", penwidth=2.5];
+
+  step10 [label="⑩ 完成通報與紀錄\l・監視器／錄音／照片\l・受傷協助就醫、驗傷、筆錄\l・受理醫療暴力通知單 → 警局、衛生局\l・院內異常事件通報\l", shape=box, style=filled, fillcolor="white"];
+
+  step11 [label="⑪ 事後關懷與支持（事件後四十八小時內）\l・主動關懷現場同仁\l・必要時轉介心理支持資源\l・召開團隊檢討會議\l", shape=box, style=filled, fillcolor="white"];
+
+  done [label="事件結束", shape=ellipse, style=filled, fillcolor="white"];
+
+  start -> step1;
+  step1 -> cab;
+  cab -> step3 [label="低風險"];
+  cab -> step4 [label="高風險"];
+  step3 -> check1;
+  check1 -> step10 [label="是"];
+  check1 -> step4 [label="否"];
+  step4 -> step5;
+  step5 -> step6;
+  step6 -> reeval;
+  reeval -> step8 [label="可降階"];
+  reeval -> step9 [label="升溫"];
+  step8 -> check2;
+  check2 -> step10 [label="是"];
+  check2 -> step9 [label="否"];
+  step9 -> step10;
+  step10 -> step11;
+  step11 -> done;
+}
